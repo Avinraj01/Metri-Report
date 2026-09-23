@@ -10585,6 +10585,42 @@
       }
     }
 
+    /* Guaranteed Mobile Menu Drawer Display on Home */
+    html.has-menu-mobile-open .c-header_mobile_menu,
+    html.is-menu-open .c-header_mobile_menu,
+    body.has-menu-mobile-open .c-header_mobile_menu,
+    header.is-menu-open .c-header_mobile_menu,
+    .c-header.is-menu-open .c-header_mobile_menu {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      display: block !important;
+      z-index: 999999 !important;
+    }
+
+    html.has-menu-mobile-open .c-header_mobile_menu_inner,
+    html.is-menu-open .c-header_mobile_menu_inner,
+    header.is-menu-open .c-header_mobile_menu_inner {
+      pointer-events: auto !important;
+    }
+
+    html.has-menu-mobile-open .c-header_mobile_menu_scroll,
+    html.is-menu-open .c-header_mobile_menu_scroll,
+    header.is-menu-open .c-header_mobile_menu_scroll {
+      opacity: 1 !important;
+      clip-path: inset(0% round var(--radius-sm, 12px)) !important;
+      pointer-events: auto !important;
+    }
+
+    html.has-menu-mobile-open .c-header_overlay,
+    html.is-menu-open .c-header_overlay,
+    header.is-menu-open .c-header_overlay {
+      opacity: 0.8 !important;
+      pointer-events: auto !important;
+      display: block !important;
+      z-index: 999998 !important;
+    }
+
     @media (max-width: 480px) {
 
       .c-header.is-fixed .c-header_container,
@@ -10592,6 +10628,17 @@
         padding: 0 10px !important;
         min-height: 54px !important;
         height: 54px !important;
+      }
+
+      .c-header_user_avatar_btn {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+      }
+
+      .c-header_user_avatar_btn span {
+        width: 8px !important;
+        height: 8px !important;
       }
     }
 
@@ -13467,6 +13514,7 @@
     })();
   </script>
   <script src="/subpage-shell.js"></script>
+  <script src="/metri-app.js"></script>
 </body>
 
 </html>

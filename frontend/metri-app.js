@@ -97,7 +97,7 @@
     animElements.forEach(function (el) { observer.observe(el); });
   });
 
-  // 6. Unified Mobile Menu Drawer Handler for Subpages
+  // 6. Unified Mobile Menu Drawer Handler
   function initMobileMenu() {
     const toggleButtons = document.querySelectorAll("[data-menu-mobile-toggle], .c-header_mobile_menu_toggle");
     const header = document.querySelector("[data-menu-header], header.c-header");
@@ -107,6 +107,7 @@
     function openMenu() {
       if (header) header.classList.add("is-menu-open");
       document.documentElement.classList.add("is-menu-open", "has-menu-mobile-open");
+      document.body.classList.add("is-menu-open", "has-menu-mobile-open");
       toggleButtons.forEach(function(btn) {
         btn.setAttribute("aria-expanded", "true");
         const sc = btn.querySelector("c-scramble-text");
@@ -118,6 +119,7 @@
     function closeMenu() {
       if (header) header.classList.remove("is-menu-open");
       document.documentElement.classList.remove("is-menu-open", "has-menu-mobile-open");
+      document.body.classList.remove("is-menu-open", "has-menu-mobile-open");
       toggleButtons.forEach(function(btn) {
         btn.setAttribute("aria-expanded", "false");
         const sc = btn.querySelector("c-scramble-text");
@@ -128,8 +130,8 @@
 
     function toggleMenu(e) {
       if (e) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
       const isOpen = document.documentElement.classList.contains("is-menu-open") || 
                      document.documentElement.classList.contains("has-menu-mobile-open") ||
@@ -140,6 +142,10 @@
         openMenu();
       }
     }
+
+    // Expose global methods
+    window.toggleMetriMobileMenu = toggleMenu;
+    window.closeMetriMobileMenu = closeMenu;
 
     toggleButtons.forEach(function(btn) {
       btn.addEventListener("click", toggleMenu);
@@ -326,8 +332,7 @@
             });
           }
 
-          // Insert User Profile Avatar at the front (left of MENU and DASHBOARD)
-          container.insertBefore(wrap, container.firstChild);
+          container.appendChild(wrap);
         } else {
           const btn = wrap.querySelector('.c-header_user_avatar_btn');
           if (btn) btn.title = `${nameToShow} (${desigToShow})`;
