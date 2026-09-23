@@ -326,7 +326,8 @@
             });
           }
 
-          container.appendChild(wrap);
+          // Insert User Profile Avatar at the front (left of MENU and DASHBOARD)
+          container.insertBefore(wrap, container.firstChild);
         } else {
           const btn = wrap.querySelector('.c-header_user_avatar_btn');
           if (btn) btn.title = `${nameToShow} (${desigToShow})`;

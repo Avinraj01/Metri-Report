@@ -682,6 +682,28 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     display: inline-flex !important;
     align-items: center !important;
     position: relative !important;
+    order: 1 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .c-header_user_avatar_btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    border: 2px solid #ff2d78 !important;
+    background: #ff2d78 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 0 14px rgba(255, 45, 120, 0.4) !important;
+    flex-shrink: 0 !important;
   }
 
   .c-header_user_avatar_btn:hover {
@@ -704,68 +726,6 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     animation: metriProfileFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  .c-header_mobile_menu_toggle,
-  .button.c-header_mobile_menu_toggle {
-    display: none !important;
-  }
-
-  .c-header_mobile_menu,
-  .c-header_overlay {
-    display: none !important;
-  }
-}
-
-/* ==========================================================================
-   MOBILE VIEW (< 1000px)
-   ========================================================================== */
-@media (max-width: 999px) {
-  .c-header_user_badge {
-    display: none !important;
-  }
-
-  .c-header .c-header_nav,
-  header.c-header .c-header_nav,
-  c-header header.c-header .c-header_nav {
-    display: contents !important;
-  }
-
-  .c-header .c-header_nav_list,
-  header.c-header .c-header_nav_list,
-  c-header header.c-header .c-header_nav_list,
-  .c-header_nav_list,
-  .c-header_nav_item,
-  .c-header_nav_link,
-  .c-header_nav_list *,
-  [data-menu-desktop-nav] .c-header_nav_list {
-    display: none !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-  }
-
-  .c-header_container,
-  header.c-header .c-header_container,
-  c-header header.c-header .c-header_container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  .c-header .c-header_nav_buttons,
-  header.c-header .c-header_nav_buttons,
-  c-header header.c-header .c-header_nav_buttons {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    margin-left: auto !important;
-    flex-shrink: 0 !important;
-    justify-content: flex-end !important;
-  }
-
   .c-header .c-header_nav_buttons .c-header_back_btn,
   header.c-header .c-header_nav_buttons .c-header_back_btn,
   .c-header .c-header_nav_buttons .button.bg-pink-500,
@@ -784,38 +744,7 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     border-radius: 8px !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
-    order: 2 !important;
-  }
-
-  .c-header_back_btn_full {
-    display: inline !important;
-  }
-
-  .c-header_back_btn_short {
-    display: none !important;
-  }
-
-  @media (max-width: 768px) {
-    .c-header_back_btn_full {
-      display: none !important;
-    }
-
-    .c-header_back_btn_short {
-      display: inline !important;
-    }
-
-    .c-header .c-header_nav_buttons,
-    header.c-header .c-header_nav_buttons,
-    c-header header.c-header .c-header_nav_buttons {
-      gap: 6px !important;
-    }
-
-    .c-header .c-header_nav_buttons .c-header_back_btn,
-    header.c-header .c-header_nav_buttons .c-header_back_btn,
-    c-header header.c-header .c-header_nav_buttons .c-header_back_btn {
-      padding: 0 10px !important;
-      font-size: 10.5px !important;
-    }
+    order: 3 !important;
   }
 
   .c-header_mobile_menu_toggle,
@@ -844,7 +773,7 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     box-shadow: none !important;
     transition: all 0.2s ease !important;
     flex-shrink: 0 !important;
-    order: 1 !important;
+    order: 2 !important;
   }
 
   .c-header_mobile_menu_toggle:hover,
@@ -928,8 +857,39 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
       max-height: 35px !important;
       padding: 0 9px !important;
       font-size: 11.5px !important;
-      gap: 5px !important;
-      border-radius: 7px !important;
+    html body c-header header.c-header .c-header_user_profile_wrap,
+    html body header.c-header .c-header_user_profile_wrap,
+    html body .c-header .c-header_user_profile_wrap,
+    .c-header_user_profile_wrap {
+      order: 1 !important;
+      margin: 0 !important;
+    }
+
+    html body c-header header.c-header .c-header_user_avatar_btn,
+    html body header.c-header .c-header_user_avatar_btn,
+    html body .c-header .c-header_user_avatar_btn,
+    .c-header_user_avatar_btn {
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      min-height: 32px !important;
+    }
+
+    html body c-header header.c-header .c-header_user_avatar_btn span,
+    html body header.c-header .c-header_user_avatar_btn span,
+    html body .c-header .c-header_user_avatar_btn span,
+    .c-header_user_avatar_btn span {
+      width: 8px !important;
+      height: 8px !important;
+      bottom: -1px !important;
+      right: -1px !important;
+    }
+
+    .c-header_user_dropdown {
+      width: 260px !important;
+      max-width: calc(100vw - 20px) !important;
+      right: -10px !important;
+      padding: 14px !important;
     }
   }
 
@@ -955,6 +915,34 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
       width: 100% !important;
       max-width: 100vw !important;
       box-sizing: border-box !important;
+    }
+
+    html body c-header header.c-header .c-header_user_profile_wrap,
+    html body header.c-header .c-header_user_profile_wrap,
+    html body .c-header .c-header_user_profile_wrap,
+    .c-header_user_profile_wrap {
+      order: 1 !important;
+      margin: 0 !important;
+    }
+
+    html body c-header header.c-header .c-header_user_avatar_btn,
+    html body header.c-header .c-header_user_avatar_btn,
+    html body .c-header .c-header_user_avatar_btn,
+    .c-header_user_avatar_btn {
+      width: 29px !important;
+      height: 29px !important;
+      min-width: 29px !important;
+      min-height: 29px !important;
+    }
+
+    html body c-header header.c-header .c-header_user_avatar_btn span,
+    html body header.c-header .c-header_user_avatar_btn span,
+    html body .c-header .c-header_user_avatar_btn span,
+    .c-header_user_avatar_btn span {
+      width: 7px !important;
+      height: 7px !important;
+      bottom: -1px !important;
+      right: -1px !important;
     }
 
     html body c-header header.c-header .c-header_logo,
