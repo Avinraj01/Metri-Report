@@ -818,11 +818,40 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     }
   }
 
-  /* Subpages do not show the Menu toggle button on navbar (as requested) */
-  .c-header_mobile_menu_toggle,
-  .button.c-header_mobile_menu_toggle,
-  c-header header.c-header .c-header_mobile_menu_toggle {
-    display: none !important;
+  /* Mobile Menu Toggle Button (order: 1 on mobile navbar) */
+  @media (max-width: 999px) {
+    .c-header_mobile_menu_toggle,
+    .button.c-header_mobile_menu_toggle,
+    c-header header.c-header .c-header_mobile_menu_toggle {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: rgba(16, 20, 33, 0.45) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 7px !important;
+      color: #ffffff !important;
+      font-family: var(--font-mono, "JetBrains Mono", monospace) !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      height: 32px !important;
+      min-height: 32px !important;
+      padding: 0 8px !important;
+      gap: 5px !important;
+      cursor: pointer !important;
+      z-index: 99999 !important;
+      order: 1 !important;
+      flex-shrink: 0 !important;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .c-header_mobile_menu_toggle,
+    .button.c-header_mobile_menu_toggle,
+    c-header header.c-header .c-header_mobile_menu_toggle {
+      display: none !important;
+    }
   }
 
   /* User Profile avatar icon button on far right */
