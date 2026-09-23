@@ -825,10 +825,18 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     display: none !important;
   }
 
+  /* User Profile avatar icon button on far right */
+  .c-header_user_profile_wrap {
+    order: 3 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
   /* Responsive styling for User Profile Avatar & Navbar on mobile (320px - 768px) */
   @media (max-width: 768px) {
     .c-header_user_profile_wrap {
       margin-left: 6px !important;
+      order: 3 !important;
     }
 
     .c-header_user_avatar_btn {
@@ -847,18 +855,19 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
   @media (max-width: 480px) {
     .c-header_user_profile_wrap {
       margin-left: 4px !important;
+      order: 3 !important;
     }
 
     .c-header_user_avatar_btn {
-      width: 32px !important;
-      height: 32px !important;
-      min-width: 32px !important;
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
       box-shadow: 0 0 8px rgba(255, 45, 120, 0.35) !important;
     }
 
     .c-header_user_avatar_btn span {
-      width: 8px !important;
-      height: 8px !important;
+      width: 7px !important;
+      height: 7px !important;
       bottom: -1px !important;
       right: -1px !important;
     }
@@ -874,21 +883,22 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     .c-header .c-header_nav_buttons .c-header_back_btn,
     header.c-header .c-header_nav_buttons .c-header_back_btn,
     c-header header.c-header .c-header_nav_buttons .c-header_back_btn {
-      height: 34px !important;
-      min-height: 34px !important;
+      height: 32px !important;
+      min-height: 32px !important;
       padding: 0 8px !important;
-      font-size: 10px !important;
+      font-size: 9.5px !important;
       letter-spacing: 0.02em !important;
+      order: 2 !important;
     }
 
     .c-header_container {
-      padding-left: 8px !important;
-      padding-right: 8px !important;
+      padding-left: 6px !important;
+      padding-right: 6px !important;
       gap: 4px !important;
     }
 
     .c-header_logo_text {
-      font-size: 13px !important;
+      font-size: 12.5px !important;
     }
   }
 

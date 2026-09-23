@@ -10621,24 +10621,35 @@
       z-index: 999998 !important;
     }
 
+    .c-header_user_profile_wrap {
+      display: inline-flex !important;
+      order: 3 !important;
+    }
+
     @media (max-width: 480px) {
 
       .c-header.is-fixed .c-header_container,
       header.c-header.is-fixed .c-header_container {
-        padding: 0 10px !important;
-        min-height: 54px !important;
-        height: 54px !important;
+        padding: 0 8px !important;
+        min-height: 50px !important;
+        height: 50px !important;
+        gap: 4px !important;
+      }
+
+      .c-header_user_profile_wrap {
+        order: 3 !important;
+        margin-left: 4px !important;
       }
 
       .c-header_user_avatar_btn {
-        width: 32px !important;
-        height: 32px !important;
-        min-width: 32px !important;
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
       }
 
       .c-header_user_avatar_btn span {
-        width: 8px !important;
-        height: 8px !important;
+        width: 7px !important;
+        height: 7px !important;
       }
     }
 
