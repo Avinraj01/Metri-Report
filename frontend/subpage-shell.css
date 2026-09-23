@@ -927,18 +927,21 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     .c-header_user_profile_wrap {
       margin-left: 3px !important;
       order: 3 !important;
+      display: inline-flex !important;
+      align-items: center !important;
     }
 
     .c-header_user_avatar_btn {
-      width: 28px !important;
-      height: 28px !important;
-      min-width: 28px !important;
-      box-shadow: 0 0 8px rgba(255, 45, 120, 0.35) !important;
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      border: 2px solid #ff2d78 !important;
+      box-shadow: 0 0 10px rgba(255, 45, 120, 0.45) !important;
     }
 
     .c-header_user_avatar_btn span {
-      width: 7px !important;
-      height: 7px !important;
+      width: 8px !important;
+      height: 8px !important;
       bottom: -1px !important;
       right: -1px !important;
     }
@@ -1047,19 +1050,26 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
 
     html body c-header header.c-header,
     html body header.c-header,
-    html body .c-header {
-      height: 48px !important;
-      min-height: 48px !important;
+    html body .c-header,
+    .c-header,
+    .c-header.is-fixed {
+      height: 50px !important;
+      min-height: 50px !important;
     }
 
     html body c-header header.c-header .c-header_container,
     html body header.c-header .c-header_container,
     html body .c-header .c-header_container,
+    .c-header.is-fixed .c-header_container,
+    header.c-header.is-fixed .c-header_container,
     .c-header_container {
-      height: 48px !important;
-      min-height: 48px !important;
-      padding-left: 6px !important;
-      padding-right: 6px !important;
+      height: 50px !important;
+      min-height: 50px !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
       gap: 4px !important;
       width: 100% !important;
       max-width: 100vw !important;
@@ -1073,7 +1083,7 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     .c-header_logo {
       display: inline-flex !important;
       align-items: center !important;
-      gap: 5px !important;
+      gap: 6px !important;
       flex-shrink: 0 !important;
     }
 
@@ -1083,9 +1093,9 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     .c-header.is-fixed .c-header_logo_icon.metri-scale-logo,
     header.c-header.is-fixed .c-header_logo_icon.metri-scale-logo,
     .c-header_logo_icon.metri-scale-logo {
-      width: 18px !important;
-      height: 18px !important;
-      min-width: 18px !important;
+      width: 23px !important;
+      height: 23px !important;
+      min-width: 23px !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
@@ -1103,12 +1113,12 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     a.c-header_logo span.c-header_logo_text,
     .c-header_logo_text {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-      font-size: 13px !important;
-      font-weight: 800 !important;
+      font-size: 14.5px !important;
+      font-weight: 900 !important;
       -webkit-font-smoothing: antialiased !important;
-      letter-spacing: -0.02em !important;
-      line-height: 18px !important;
-      height: 18px !important;
+      letter-spacing: -0.015em !important;
+      line-height: 1 !important;
+      color: #ffffff !important;
       display: inline-flex !important;
       align-items: center !important;
     }
@@ -1117,9 +1127,26 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     html body header.c-header .c-header_nav_buttons,
     html body .c-header .c-header_nav_buttons,
     .c-header .c-header_nav_buttons {
-      gap: 4px !important;
+      gap: 5px !important;
       margin-left: auto !important;
+      display: flex !important;
+      align-items: center !important;
       flex-shrink: 0 !important;
+    }
+
+    .c-header_user_avatar_btn {
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      border: 2px solid #ff2d78 !important;
+      box-shadow: 0 0 10px rgba(255, 45, 120, 0.45) !important;
+    }
+
+    .c-header_user_avatar_btn span {
+      width: 8px !important;
+      height: 8px !important;
+      bottom: -1px !important;
+      right: -1px !important;
     }
 
     html body c-header header.c-header .c-header_nav_buttons .c-header_back_btn,
