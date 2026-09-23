@@ -99,70 +99,64 @@
 
   // 6. Unified Mobile Menu Drawer Handler
   function initMobileMenu() {
-    const toggleButtons = document.querySelectorAll("[data-menu-mobile-toggle], .c-header_mobile_menu_toggle");
-    const header = document.querySelector("[data-menu-header], header.c-header");
     const overlay = document.querySelector("[data-menu-overlay], .c-header_overlay");
     const mobileLinks = document.querySelectorAll(".c-header_mobile_menu_link, .c-header_mobile_menu_buttons a");
 
-    function openMenu() {
-      if (header) header.classList.add("is-menu-open");
-      document.documentElement.classList.add("is-menu-open", "has-menu-mobile-open");
-      document.body.classList.add("is-menu-open", "has-menu-mobile-open");
-      toggleButtons.forEach(function(btn) {
-        btn.setAttribute("aria-expanded", "true");
-        const sc = btn.querySelector("c-scramble-text");
-        if (sc) sc.textContent = "Close";
-      });
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      if (header) header.classList.remove("is-menu-open");
-      document.documentElement.classList.remove("is-menu-open", "has-menu-mobile-open");
-      document.body.classList.remove("is-menu-open", "has-menu-mobile-open");
-      toggleButtons.forEach(function(btn) {
-        btn.setAttribute("aria-expanded", "false");
-        const sc = btn.querySelector("c-scramble-text");
-        if (sc) sc.textContent = "Menu";
-      });
-      document.body.style.overflow = "";
-    }
-
-    function toggleMenu(e) {
+    window.toggleMetriMobileMenu = function (e) {
       if (e) {
         if (typeof e.preventDefault === 'function') e.preventDefault();
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
-      const isOpen = document.documentElement.classList.contains("is-menu-open") || 
-                     document.documentElement.classList.contains("has-menu-mobile-open") ||
-                     (header && header.classList.contains("is-menu-open"));
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
+      const header = document.querySelector('header.c-header, .c-header, [data-menu-header]');
+      const isOpen = document.documentElement.classList.contains('has-menu-mobile-open') ||
+                     document.documentElement.classList.contains('is-menu-open') ||
+                     (header && header.classList.contains('is-menu-open'));
+
+      const willBeOpen = !isOpen;
+
+      document.documentElement.classList.toggle('has-menu-mobile-open', willBeOpen);
+      document.documentElement.classList.toggle('is-menu-open', willBeOpen);
+      document.body.classList.toggle('has-menu-mobile-open', willBeOpen);
+      document.body.classList.toggle('is-menu-open', willBeOpen);
+
+      if (header) {
+        header.classList.toggle('is-menu-open', willBeOpen);
+        header.classList.toggle('has-menu-mobile-open', willBeOpen);
+        if (willBeOpen) {
+          header.classList.remove('is-header-hidden');
+          header.classList.add('is-header-visible');
+        }
       }
-    }
 
-    // Expose global methods
-    window.toggleMetriMobileMenu = toggleMenu;
-    window.closeMetriMobileMenu = closeMenu;
+      const toggles = document.querySelectorAll('[data-menu-mobile-toggle], .c-header_mobile_menu_toggle');
+      toggles.forEach(t => {
+        t.setAttribute('aria-expanded', willBeOpen ? 'true' : 'false');
+      });
+    };
 
-    toggleButtons.forEach(function(btn) {
-      btn.addEventListener("click", toggleMenu);
-    });
+    window.closeMetriMobileMenu = function () {
+      const header = document.querySelector('header.c-header, .c-header, [data-menu-header]');
+      document.documentElement.classList.remove('has-menu-mobile-open', 'is-menu-open');
+      document.body.classList.remove('has-menu-mobile-open', 'is-menu-open');
+      if (header) {
+        header.classList.remove('is-menu-open', 'has-menu-mobile-open');
+      }
+      const toggles = document.querySelectorAll('[data-menu-mobile-toggle], .c-header_mobile_menu_toggle');
+      toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+    };
 
     if (overlay) {
-      overlay.addEventListener("click", closeMenu);
+      overlay.addEventListener('click', window.closeMetriMobileMenu);
     }
 
-    mobileLinks.forEach(function(link) {
-      link.addEventListener("click", function() {
-        closeMenu();
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.closeMetriMobileMenu();
       });
     });
 
-    document.addEventListener("keydown", function(e) {
-      if (e.key === "Escape") closeMenu();
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') window.closeMetriMobileMenu();
     });
   }
 

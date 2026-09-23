@@ -1238,18 +1238,18 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     }
   }
 
-  /* Mobile Drawer Container - 100% GONE and ZERO POINTER EVENTS WHEN CLOSED */
+  /* Mobile Drawer Container */
   .c-header_mobile_menu,
   [data-menu-mobile] {
     display: none !important;
     position: fixed !important;
-    top: 68px !important;
+    top: 50px !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     width: 100vw !important;
-    height: calc(100vh - 68px) !important;
-    height: calc(100dvh - 68px) !important;
+    height: calc(100vh - 50px) !important;
+    height: calc(100dvh - 50px) !important;
     background: transparent !important;
     z-index: 999998 !important;
     opacity: 0 !important;
@@ -1260,59 +1260,55 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     box-sizing: border-box !important;
   }
 
-  .c-header_mobile_menu *,
-  [data-menu-mobile] * {
-    pointer-events: none !important;
-  }
-
   .c-header_overlay,
   [data-menu-overlay] {
     display: none !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.75) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    z-index: 999997 !important;
     opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.25s ease !important;
   }
 
-  /* Open State for Mobile Drawer - ONLY VISIBLE & INTERACTIVE WHEN EXPLICITLY OPEN */
-  html.has-menu-mobile-open header.c-header,
-  html.has-menu-mobile-open .c-header,
-  html.is-menu-open header.c-header,
-  html.is-menu-open .c-header,
-  body.has-menu-mobile-open header.c-header,
-  body.has-menu-mobile-open .c-header,
-  body.is-menu-open header.c-header,
-  body.is-menu-open .c-header,
-  header.is-menu-open.c-header,
-  header.has-menu-mobile-open.c-header,
-  .c-header.is-menu-open,
-  .c-header.has-menu-mobile-open {
-    pointer-events: auto !important;
+  /* Open State for Mobile Drawer */
+  html.has-menu-mobile-open,
+  html.is-menu-open,
+  body.has-menu-mobile-open,
+  body.is-menu-open {
+    overflow: hidden !important;
   }
 
-  .c-header.is-menu-open .c-header_mobile_menu,
-  .c-header.has-menu-mobile-open .c-header_mobile_menu,
+  html.has-menu-mobile-open .c-header_mobile_menu,
+  html.is-menu-open .c-header_mobile_menu,
+  body.has-menu-mobile-open .c-header_mobile_menu,
+  body.is-menu-open .c-header_mobile_menu,
   header.is-menu-open .c-header_mobile_menu,
   header.has-menu-mobile-open .c-header_mobile_menu,
-  html.is-menu-open .c-header_mobile_menu,
-  html.has-menu-mobile-open .c-header_mobile_menu,
-  body.is-menu-open .c-header_mobile_menu,
-  body.has-menu-mobile-open .c-header_mobile_menu,
+  .c-header.is-menu-open .c-header_mobile_menu,
+  .c-header.has-menu-mobile-open .c-header_mobile_menu,
   html.has-menu-mobile-open [data-menu-mobile],
   html.is-menu-open [data-menu-mobile] {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    z-index: 9999999 !important;
   }
 
-  .c-header.is-menu-open .c-header_mobile_menu *,
-  .c-header.has-menu-mobile-open .c-header_mobile_menu *,
+  html.has-menu-mobile-open .c-header_mobile_menu *,
+  html.is-menu-open .c-header_mobile_menu *,
+  body.has-menu-mobile-open .c-header_mobile_menu *,
+  body.is-menu-open .c-header_mobile_menu *,
   header.is-menu-open .c-header_mobile_menu *,
   header.has-menu-mobile-open .c-header_mobile_menu *,
-  html.is-menu-open .c-header_mobile_menu *,
-  html.has-menu-mobile-open .c-header_mobile_menu *,
-  body.is-menu-open .c-header_mobile_menu *,
-  body.has-menu-mobile-open .c-header_mobile_menu *,
   html.has-menu-mobile-open [data-menu-mobile] *,
   html.is-menu-open [data-menu-mobile] * {
     pointer-events: auto !important;
@@ -1333,6 +1329,7 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
+    z-index: 9999998 !important;
   }
 
   .c-header_mobile_menu_inner {
