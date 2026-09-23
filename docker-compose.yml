@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: metrireport_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./metrireport.db
+      - SECRET_KEY=metrireport-sih-2026-production-secret-key
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-}
+      - GOOGLE_REDIRECT_URI=${GOOGLE_REDIRECT_URI:-http://localhost:5173/auth/google/callback}
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend/metrireport.db:/app/metrireport.db
+    restart: unless-stopped
+
+  # [Frontend Server is located in ./frontend and runs on port 3000 via server.js]
+

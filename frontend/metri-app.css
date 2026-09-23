@@ -1,0 +1,174 @@
+/* ==========================================================================
+   METRI-REPORT REAL-TIME METROLOGY GLASSMORPHISM APP STYLES
+   Seamlessly integrates with Cerebrium Obsidian / Neon Purple Aesthetics
+   ========================================================================== */
+
+:root {
+  --metri-bg: #080b14;
+  --metri-card-bg: rgba(16, 20, 33, 0.75);
+  --metri-card-border: rgba(255, 255, 255, 0.08);
+  --metri-card-border-hover: rgba(255, 72, 139, 0.45);
+  --metri-primary: #ff488b;
+  --metri-primary-hover: #ff609a;
+  --metri-purple: #9333ea;
+  --metri-purple-light: #c084fc;
+  --metri-accent-glow: 0 0 25px rgba(255, 72, 139, 0.25);
+  --metri-glass-blur: blur(24px);
+  --metri-text-main: #f8fafc;
+  --metri-text-muted: #94a3b8;
+  --metri-text-dim: #64748b;
+  --metri-success: #10b981;
+  --metri-success-bg: rgba(16, 185, 129, 0.15);
+  --metri-warning: #f59e0b;
+  --metri-warning-bg: rgba(245, 158, 11, 0.15);
+  --metri-danger: #ef4444;
+  --metri-danger-bg: rgba(239, 68, 68, 0.15);
+}
+
+/* Eccentricity Map Interactive 5-Point Load Twin */
+.metri-eccentricity-map {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  background: rgba(11, 15, 25, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  aspect-ratio: 1 / 1;
+  max-width: 380px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.metri-ecc-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.metri-ecc-point:hover {
+  background: rgba(255, 72, 139, 0.12);
+  border-color: rgba(255, 72, 139, 0.4);
+  transform: scale(1.04);
+}
+
+.metri-ecc-point.active {
+  background: rgba(255, 72, 139, 0.22);
+  border-color: #ff488b;
+  box-shadow: 0 0 16px rgba(255, 72, 139, 0.4);
+}
+
+.metri-ecc-point.pos-center {
+  grid-column: 2;
+  grid-row: 2;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.metri-ecc-point.pos-center.active {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+.metri-ecc-point.pos-tl { grid-column: 1; grid-row: 1; }
+.metri-ecc-point.pos-tr { grid-column: 3; grid-row: 1; }
+.metri-ecc-point.pos-bl { grid-column: 1; grid-row: 3; }
+.metri-ecc-point.pos-br { grid-column: 3; grid-row: 3; }
+
+.metri-ecc-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+}
+
+.metri-ecc-lbl {
+  font-size: 11px;
+  color: var(--metri-text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.metri-ecc-val {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #38bdf8;
+  margin-top: 4px;
+}
+
+/* Regulatory Compliance Explainability Card */
+.compliance-clause-card {
+  background: rgba(16, 20, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s ease;
+}
+
+.compliance-clause-card:hover {
+  border-color: rgba(255, 72, 139, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.compliance-clause-card.pass {
+  border-left: 4px solid #10b981;
+}
+
+.compliance-clause-card.fail {
+  border-left: 4px solid #ef4444;
+}
+
+.compliance-clause-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.compliance-clause-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.compliance-clause-tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--metri-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.compliance-clause-math {
+  background: rgba(11, 15, 25, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

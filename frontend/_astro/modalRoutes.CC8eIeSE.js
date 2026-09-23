@@ -1,0 +1,1 @@
+const a="/book-demo",c="/contact",s="demo-modal:open",i="contact-modal:open",r=[{type:"demo",path:a,openEvent:s},{type:"contact",path:c,openEvent:i}];function e(n){const t=n.trim();return t&&(t.startsWith("/")?t:`/${t}`).replace(/\/+$/,"")||"/"}function d(n){const t=e(n);return r.find(o=>e(o.path)===t)}export{i as C,s as D,d as g};

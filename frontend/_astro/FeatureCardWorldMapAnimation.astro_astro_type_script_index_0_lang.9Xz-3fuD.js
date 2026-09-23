@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["_astro/FeatureCardWorldMapAnimation.D7NAwJpY.js","_astro/component-manager.modern.DNc_OPSh.js","_astro/lottie_light.BKS0DOqd.js","_astro/_commonjsHelpers.CqkleIqs.js","_astro/intersection-observer-manager.modern.BLXhoylW.js"])))=>i.map(i=>d[i]);
+import{_}from"./preload-helper.CVfkMyKi.js";_(()=>import("./FeatureCardWorldMapAnimation.D7NAwJpY.js"),__vite__mapDeps([0,1,2,3,4]));

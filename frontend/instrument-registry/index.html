@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en" data-scene="home" data-template="default" class="is-initial-loading dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="shortcut icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260924_04">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=20260924_04">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=20260924_04">
+  <title>Metri-Report | Instrument Registry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/cerebrium-theme.css">
+  <link rel="stylesheet" href="/subpage-shell.css?v=3.0">
+  <link rel="stylesheet" href="/metri-app.css">
+  <link rel="stylesheet" href="/metri-engine.css">
+  <link rel="stylesheet" href="/login-gate.css">
+  <script>
+    class ScrambleText extends HTMLElement {
+      connectedCallback() {
+        this.originalText = this.getAttribute('data-datocms-content-link-source') || this.textContent.trim();
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        const parent = this.closest('a, button');
+        if (parent && !parent._scrambleBound) {
+          parent._scrambleBound = true;
+          parent.addEventListener('mouseenter', () => this.scrambleText());
+          parent.addEventListener('mouseleave', () => this.resetText());
+        }
+      }
+      scrambleText() {
+        if (!this.originalText) this.originalText = this.getAttribute('data-datocms-content-link-source') || this.textContent.trim();
+        if (!this.chars) this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        let iteration = 0;
+        clearInterval(this.interval);
+        this.interval = setInterval(() => {
+          this.textContent = this.originalText
+            .split('')
+            .map((char, index) => {
+              if (index < iteration) return this.originalText[index];
+              return this.chars[Math.floor(Math.random() * this.chars.length)];
+            })
+            .join('');
+          if (iteration >= this.originalText.length) clearInterval(this.interval);
+          iteration += 1 / 2;
+        }, 20);
+      }
+      resetText() {
+        clearInterval(this.interval);
+        if (this.originalText) this.textContent = this.originalText;
+      }
+    }
+    if (!customElements.get('c-scramble-text')) {
+      customElements.define('c-scramble-text', ScrambleText);
+    }
+  </script>
+  <style>
+    /* 100% Exact 3D Model & Ribbon Video Background from Cerebrium Engineering Blog */
+    .registry-3d-backdrop {
+      position: fixed;
+      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      background: #0d0417;
+    }
+
+    .registry-3d-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: right 30%;
+      opacity: 0.95;
+      filter: saturate(1.18) contrast(1.12);
+      pointer-events: none;
+    }
+
+    .registry-3d-glow-pulse {
+      position: absolute;
+      top: 18%;
+      right: 22%;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 72, 139, 0.32) 0%, rgba(147, 51, 234, 0.16) 45%, transparent 70%);
+      filter: blur(60px);
+      animation: neonGlowPulse 5s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes neonGlowPulse {
+      0% {
+        opacity: 0.55;
+        transform: scale(0.96);
+      }
+      100% {
+        opacity: 0.95;
+        transform: scale(1.12);
+      }
+    }
+
+    .registry-3d-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(180deg, rgba(13, 4, 23, 0.1) 0%, rgba(13, 4, 23, 0.35) 45%, rgba(13, 4, 23, 0.88) 100%),
+        radial-gradient(ellipse at 85% 25%, transparent 50%, rgba(13, 4, 23, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .metri-subpage-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .metri-card {
+      background: rgba(18, 12, 28, 0.74) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 72, 139, 0.1) !important;
+    }
+
+    .metri-page-title {
+      text-shadow: 0 0 35px rgba(255, 72, 139, 0.5);
+    }
+
+    /* =========================================================================
+       100% Exact Featured 3D Hero Banner (Cerebrium Blog Showcase)
+       ========================================================================= */
+    .registry-featured-hero-banner {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      border: 1px solid rgba(255, 72, 139, 0.35);
+      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 72, 139, 0.25);
+      background-color: #0d0417;
+      min-height: 440px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .registry-hero-3d-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .registry-hero-3d-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      object-position: right 25%;
+      filter: saturate(1.25) contrast(1.15) brightness(1.05);
+    }
+
+    .registry-hero-3d-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .registry-hero-glow-layer {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(135deg, rgba(13, 4, 23, 0.82) 0%, rgba(13, 4, 23, 0.35) 45%, rgba(13, 4, 23, 0.15) 100%),
+        linear-gradient(0deg, rgba(13, 4, 23, 0.95) 0%, rgba(13, 4, 23, 0.25) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .registry-hero-content {
+      position: relative;
+      z-index: 3;
+      padding: clamp(24px, 4vw, 48px);
+      max-width: 840px;
+    }
+
+    .registry-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      font-family: "JetBrains Mono", "Suisse Int'l Mono", monospace;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+    }
+
+    .registry-hero-date {
+      color: #e2e8f0;
+    }
+
+    .registry-hero-tag {
+      color: #ff488b;
+      background: rgba(255, 72, 139, 0.18);
+      border: 1px solid rgba(255, 72, 139, 0.4);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .registry-hero-title {
+      font-family: 'Outfit', "ABC Favorit Trial", sans-serif;
+      font-size: clamp(26px, 3.6vw, 46px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 72, 139, 0.35);
+    }
+
+    .registry-hero-desc {
+      font-size: clamp(14px, 1.2vw, 16px);
+      line-height: 1.6;
+      color: #cbd5e1;
+      margin: 0;
+      max-width: 680px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+    }
+
+    /* Absolute pixel-perfect guarantee for Instrument Registry Navigation Header (Matches Evaluation Workspace 1:1) */
+    header.c-header,
+    .c-header {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      z-index: 999999 !important;
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: flex !important;
+      pointer-events: none !important;
+      padding-top: 14px !important;
+      padding-bottom: 14px !important;
+      box-sizing: border-box !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+      will-change: transform, opacity !important;
+    }
+    .c-header.is-header-hidden,
+    header.c-header.is-header-hidden,
+    html.has-header-hidden header.c-header,
+    html.has-header-hidden .c-header {
+      transform: translateY(-100%) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    .c-header.is-header-visible,
+    header.c-header.is-header-visible,
+    html.has-header-visible header.c-header,
+    html.has-header-visible .c-header {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+    }
+    header.c-header .c-header_container,
+    .c-header .c-header_container {
+      pointer-events: auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      max-width: 1440px !important;
+      margin: 0 auto !important;
+      padding: 0 20px !important;
+      box-sizing: border-box !important;
+      gap: 12px !important;
+    }
+    header.c-header .c-header_logo,
+    .c-header .c-header_logo {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      text-decoration: none !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    header.c-header .c-header_logo_icon.metri-scale-logo,
+    .c-header .c-header_logo_icon.metri-scale-logo {
+      width: 26px !important;
+      height: 26px !important;
+      color: #ff3b80 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+    header.c-header .c-header_logo_text,
+    .c-header .c-header_logo_text {
+      display: inline-block !important;
+      color: #ffffff !important;
+      font-family: var(--font-display, "Outfit", sans-serif) !important;
+      font-size: 17px !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.02em !important;
+      white-space: nowrap !important;
+    }
+    header.c-header .c-header_nav,
+    .c-header .c-header_nav {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex-grow: 1 !important;
+      justify-content: space-between !important;
+      flex-shrink: 1 !important;
+      min-width: 0 !important;
+    }
+    header.c-header .c-header_nav_list,
+    .c-header .c-header_nav_list {
+      margin: 0 auto !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      background: rgba(22, 27, 44, 0.78) !important;
+      backdrop-filter: blur(20px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 8px !important;
+      height: 40px !important;
+      padding: 0 4px !important;
+      list-style: none !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    header.c-header .c-header_nav_item,
+    .c-header .c-header_nav_item {
+      height: 100% !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    header.c-header .c-header_nav_link,
+    .c-header .c-header_nav_link {
+      height: 100% !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      padding: 0 !important;
+      color: #94a3b8 !important;
+      text-decoration: none !important;
+      font-family: var(--font-mono, "JetBrains Mono", monospace) !important;
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.03em !important;
+      text-transform: uppercase !important;
+      transition: color 0.2s ease !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      position: relative !important;
+    }
+    header.c-header .c-header_nav_link_label,
+    .c-header .c-header_nav_link_label {
+      font-family: var(--font-mono, "JetBrains Mono", monospace) !important;
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.03em !important;
+      text-transform: uppercase !important;
+      height: 100% !important;
+      padding: 0 7.5px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    header.c-header c-scramble-text,
+    .c-header c-scramble-text {
+      white-space: nowrap !important;
+      display: inline-block !important;
+    }
+    header.c-header .c-header_nav_link:hover,
+    .c-header .c-header_nav_link:hover {
+      color: #ffffff !important;
+    }
+    header.c-header .c-header_nav_link.is-current-page,
+    .c-header .c-header_nav_link.is-current-page {
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+    }
+    header.c-header .c-header_nav_link.is-current-page::after,
+    .c-header .c-header_nav_link.is-current-page::after {
+      content: "" !important;
+      position: absolute !important;
+      bottom: 6px !important;
+      left: 7.5px !important;
+      right: 7.5px !important;
+      height: 1.5px !important;
+      background-color: #ffffff !important;
+      border-radius: 1px !important;
+      pointer-events: none !important;
+    }
+    header.c-header .c-header_nav_buttons,
+    .c-header .c-header_nav_buttons {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      margin-left: 0 !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+    header.c-header .c-header_nav_buttons .button.bg-pink-500,
+    .c-header .c-header_nav_buttons .button.bg-pink-500 {
+      background-color: #ff3b80 !important;
+      color: #080b14 !important;
+      font-family: var(--font-mono, "JetBrains Mono", monospace) !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+      border-radius: 8px !important;
+      min-height: 40px !important;
+      height: 40px !important;
+      padding: 0 13px !important;
+      box-shadow: 0 0 20px rgba(255, 59, 128, 0.4) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    header.c-header .c-header_nav_buttons .button.bg-pink-500:hover,
+    .c-header .c-header_nav_buttons .button.bg-pink-500:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 0 30px rgba(255, 59, 128, 0.6) !important;
+      filter: brightness(1.06) !important;
+    }
+
+    @media (max-width: 1200px) {
+      header.c-header .c-header_nav_link_label,
+      .c-header .c-header_nav_link_label {
+        padding: 0 5px !important;
+        font-size: 9.5px !important;
+        letter-spacing: 0.01em !important;
+      }
+      header.c-header .c-header_nav_link.is-current-page::after,
+      .c-header .c-header_nav_link.is-current-page::after {
+        left: 5px !important;
+        right: 5px !important;
+      }
+    }
+
+    /* Desktop View (1000px and up) */
+    @media (min-width: 1000px) {
+      header.c-header .c-header_container,
+      .c-header .c-header_container {
+        position: relative !important;
+      }
+      header.c-header .c-header_nav,
+      .c-header .c-header_nav {
+        position: static !important;
+        justify-content: flex-end !important;
+      }
+      header.c-header .c-header_nav_list,
+      .c-header .c-header_nav_list {
+        display: inline-flex !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        margin: 0 !important;
+      }
+      header.c-header .c-header_nav_buttons,
+      .c-header .c-header_nav_buttons {
+        margin-left: auto !important;
+      }
+      header.c-header .c-header_mobile_menu_toggle,
+      .c-header .c-header_mobile_menu_toggle {
+        display: none !important;
+      }
+      header.c-header .c-header_nav_buttons .button.bg-pink-500,
+      .c-header .c-header_nav_buttons .button.bg-pink-500 {
+        display: inline-flex !important;
+      }
+    }
+
+    /* Mobile & Tablet View (below 1000px) */
+    @media (max-width: 999px) {
+      header.c-header .c-header_nav_list,
+      .c-header .c-header_nav_list {
+        display: none !important;
+      }
+      header.c-header .c-header_nav_buttons,
+      .c-header .c-header_nav_buttons {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-charcoal text-white antialiased dark" style="min-height: 100vh; display: flex; flex-direction: column;">
+  <!-- 100% Exact 3D Model & Ribbon Video Background from Cerebrium Engineering Blog -->
+  <div class="registry-3d-backdrop" aria-hidden="true">
+    <video class="registry-3d-video" autoplay loop muted playsinline poster="/assets/cerebrium-blog-3d-bg.png">
+      <source src="/assets/cerebrium-blog-gpu-3d-model.mp4" type="video/mp4">
+      <img src="/assets/cerebrium-blog-3d-bg.png" alt="3D Model Background" style="width: 100%; height: 100%; object-fit: cover;">
+    </video>
+    <div class="registry-3d-glow-pulse"></div>
+    <div class="registry-3d-gradient-overlay"></div>
+  </div>
+
+  <div class="relative" id="swup" data-no-swup>
+    <!-- Main Unified Header Navigation (Exact Match to Evaluation Workspace) -->
+    <c-header>
+      <header class="c-header dark" data-menu-header>
+        <div class="c-header_container">
+          <a href="/" class="c-header_logo" data-no-swup>
+            <span class="c-header_logo_icon metri-scale-logo">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%; display: block;">
+                <!-- Top Finial Knob -->
+                <circle cx="48" cy="11" r="4" fill="currentColor"/>
+                <!-- Central Vertical Pillar -->
+                <rect x="45.5" y="15" width="5" height="69" rx="2" fill="currentColor"/>
+                <!-- Decorative Collar Ring -->
+                <rect x="43.5" y="28.5" width="9" height="3.5" rx="1.5" fill="currentColor"/>
+
+                <!-- Pedestal Base -->
+                <path d="M 35 84 C 35 76, 61 76, 61 84 Z" fill="currentColor"/>
+                <rect x="28" y="84" width="40" height="5.5" rx="2.75" fill="currentColor"/>
+
+                <!-- Angled Balance Beam -->
+                <path d="M 17 35 Q 48 23 79 21.5" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+                <circle cx="48" cy="24" r="5" fill="currentColor"/>
+                <circle cx="17" cy="35" r="3.2" fill="currentColor"/>
+                <circle cx="79" cy="21.5" r="3.2" fill="currentColor"/>
+
+                <!-- Left Weighing Pan -->
+                <path d="M 17 35 L 5 60 M 17 35 L 29 60" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+                <path d="M 3.5 60 C 3.5 78, 30.5 78, 30.5 60 Z" fill="currentColor"/>
+
+                <!-- Right Hanging Document Sheets Construction -->
+                <path d="M 79 21.5 L 66 36 M 79 21.5 L 91 36" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+                
+                <!-- Back Document Sheet -->
+                <path d="M 68 36 L 89 36 C 92.5 36 95 38.5 95 42 L 95 72 C 95 75.5 92.5 78 89 78 L 76 78" 
+                      stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+                <!-- Front Document Sheet -->
+                <path d="M 59 40 L 75 40 L 87 52 L 87 78 C 87 81 84.5 83 81.5 83 L 59 83 C 56 83 54 81 54 78 L 54 45 C 54 42 56 40 59 40 Z" 
+                      stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" fill="none"/>
+                <path d="M 75 40 L 75 52 L 87 52" stroke="currentColor" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+
+                <!-- Document Report Text Lines -->
+                <line x1="60" y1="49" x2="69.5" y2="49" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+                <line x1="60" y1="55.5" x2="69.5" y2="55.5" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+                <line x1="60" y1="62" x2="81" y2="62" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+                <line x1="60" y1="68.5" x2="81" y2="68.5" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+                <line x1="60" y1="75" x2="73" y2="75" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="c-header_logo_text">Metri-Report</span>
+          </a>
+
+          <nav class="c-header_nav" data-menu-desktop-nav>
+            <ul class="c-header_nav_list">
+              <li class="c-header_nav_item">
+                <a href="/instrument-registry" target="_self" aria-current="page" class="c-header_nav_link is-current-page" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="INSTRUMENT REGISTRY">INSTRUMENT REGISTRY</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+              <li class="c-header_nav_item">
+                <a href="/evaluation-workspace" target="_self" class="c-header_nav_link" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="EVALUATION WORKSPACE">EVALUATION WORKSPACE</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+              <li class="c-header_nav_item">
+                <a href="/report-archive" target="_self" class="c-header_nav_link" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="REPORT ARCHIVE">REPORT ARCHIVE</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+              <li class="c-header_nav_item">
+                <a href="/evidence-&-vault" target="_self" class="c-header_nav_link" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="EVIDENCE &amp; VAULT">EVIDENCE &amp; VAULT</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+              <li class="c-header_nav_item">
+                <a href="/user-privileges-&-rbac" target="_self" class="c-header_nav_link" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="USER PRIVILEGES &amp; RBAC">USER PRIVILEGES &amp; RBAC</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+              <li class="c-header_nav_item">
+                <a href="/audit-trail-log" target="_self" class="c-header_nav_link" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="AUDIT TRAIL LOG">AUDIT TRAIL LOG</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+              <li class="c-header_nav_item">
+                <a href="/OIML-Rule-Engine" target="_self" class="c-header_nav_link" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();">
+                  <span class="c-header_nav_link_label c-header_nav_hoverbg">
+                    <c-scramble-text data-datocms-content-link-source="OIML RULE ENGINE">OIML RULE ENGINE</c-scramble-text>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            </nav>
+
+            <div class="c-header_nav_buttons">
+              <!-- Back to Dashboard Button (Left of Menu on Mobile) -->
+              <a class="button group relative overflow-hidden isolate inline-flex justify-center items-center gap-1.5 rounded-sm bg-pink-500 text-charcoal md:min-h-13.5 max-md:min-h-10.5 md:px-5 max-md:px-3 font-bold c-header_back_btn" href="/" data-no-swup onmouseenter="this?.querySelectorAll('c-scramble-text')?.forEach(el=>el.scrambleText?.());" onmouseleave="this?.querySelectorAll('c-scramble-text')?.forEach(el=>el.resetText?.());" data-datocms-content-link-boundary="true">
+                <span aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] transition-[transform,opacity] duration-200 ease-(--ease) [transform:scale3d(0.9,0.7,1)] opacity-0 group-hover:[transform:scale3d(1,1,1)] group-hover:opacity-100 group-disabled:[transform:scale3d(0.9,0.7,1)] group-disabled:opacity-0 bg-pink-600"></span>
+                <span class="text-label inline-block leading-none z-2 font-bold">
+                  <span class="c-header_back_btn_full"><c-scramble-text data-datocms-content-link-source="← BACK TO DASHBOARD">&larr; BACK TO DASHBOARD</c-scramble-text></span>
+                  <span class="c-header_back_btn_short"><c-scramble-text data-datocms-content-link-source="← DASHBOARD">&larr; DASHBOARD</c-scramble-text></span>
+                </span>
+              </a>
+              <!-- Mobile Menu Toggle Button (Far Right, 100% Match to localhost:3000) -->
+              <button class="button group relative overflow-hidden isolate inline-flex justify-center items-center gap-2 rounded-sm bg-charcoal/35 backdrop-blur-lg text-white md:min-h-13.5 max-md:min-h-10.5 md:px-5 max-md:px-3.5 c-header_mobile_menu_toggle md:hidden" type="button" onclick="window.toggleMetriMobileMenu ? window.toggleMetriMobileMenu(event) : null;" onmouseenter="this?.querySelector('c-scramble-text')?.scrambleText?.();" onmouseleave="this?.querySelector('c-scramble-text')?.resetText?.();" data-menu-mobile-toggle="true">
+                <span aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 rounded-[inherit] transition-[transform,opacity] duration-200 ease-(--ease) [transform:scale3d(0.9,0.7,1)] opacity-0 group-hover:[transform:scale3d(1,1,1)] group-hover:opacity-100 group-disabled:[transform:scale3d(0.9,0.7,1)] group-disabled:opacity-0 bg-charcoal/50"></span>
+                <c-scramble-text class="text-label inline-block leading-none z-2" data-datocms-content-link-source="Menu">Menu</c-scramble-text>
+                <span class="relative inline-flex justify-center items-center pointer-events-none w-5 h-5">
+                  <span class="c-icon">
+                    <svg width="1em" height="1em" viewBox="0 0 11 11" class="svg-menu" aria-hidden="true" focusable="false" data-icon="menu">
+                      <rect width="4" height="4" x=".001" fill="currentColor" rx="2"></rect><rect width="4" height="4" x="7" fill="currentColor" rx="2"></rect><rect width="4.001" height="4.001" x=".001" y="7" fill="currentColor" rx="2"></rect><rect width="4.001" height="4.001" x="6.999" y="7" fill="currentColor" rx="2"></rect>
+                    </svg>
+                  </span>
+                </span>
+              </button>
+            </div>
+          
+        </div>
+
+        <!-- Mobile Menu Drawer (100% Matching localhost:3000) -->
+        <div class="c-header_mobile_menu dark" data-menu-mobile data-lenis-prevent>
+          <div class="c-header_mobile_menu_inner" data-menu-mobile-inner>
+            <div class="c-header_mobile_menu_scroll">
+              <ul class="c-header_mobile_menu_list">
+                <li class="c-header_mobile_menu_item"><a href="/instrument-registry" target="_self" aria-current="page" class="c-header_mobile_menu_link is-current-page"><span class="c-header_mobile_menu_link_label">Instrument Registry</span></a></li>
+                <li class="c-header_mobile_menu_item"><a href="/evaluation-workspace" target="_self" class="c-header_mobile_menu_link"><span class="c-header_mobile_menu_link_label">Evaluation Workspace</span></a></li>
+                <li class="c-header_mobile_menu_item"><a href="/report-archive" target="_self" class="c-header_mobile_menu_link"><span class="c-header_mobile_menu_link_label">Report Archive</span></a></li>
+                <li class="c-header_mobile_menu_item"><a href="/evidence-&-vault" target="_self" class="c-header_mobile_menu_link"><span class="c-header_mobile_menu_link_label">Evidence &amp; Vault</span></a></li>
+                <li class="c-header_mobile_menu_item"><a href="/user-privileges-&-rbac" target="_self" class="c-header_mobile_menu_link"><span class="c-header_mobile_menu_link_label">User Privileges &amp; RBAC</span></a></li>
+                <li class="c-header_mobile_menu_item"><a href="/audit-trail-log" target="_self" class="c-header_mobile_menu_link"><span class="c-header_mobile_menu_link_label">Audit Trail Log</span></a></li>
+                <li class="c-header_mobile_menu_item"><a href="/OIML-Rule-Engine" target="_self" class="c-header_mobile_menu_link"><span class="c-header_mobile_menu_link_label">OIML Rule Engine</span></a></li>
+              </ul>
+              <div class="c-header_mobile_menu_buttons">
+                <div class="col-span-2">
+                  <a class="button" href="/">
+                    <c-scramble-text class="text-label inline-block leading-none z-2 font-bold" data-datocms-content-link-source="BACK TO DASHBOARD">BACK TO DASHBOARD</c-scramble-text>
+                  </a>
+                </div>
+                <div class="col-span-2">
+                  <a class="button" href="#" onclick="event.preventDefault(); if(window.reopenLoginGate) window.reopenLoginGate();" rel="noopener noreferrer">
+                    <c-scramble-text class="text-label inline-block leading-none z-2 font-bold" data-datocms-content-link-source="Logout">Logout</c-scramble-text>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c-header_overlay" data-menu-overlay onclick="window.closeMetriMobileMenu ? window.closeMetriMobileMenu() : null;"></div>
+      </header>
+    </c-header>
+
+    <!-- Main Content Layer -->
+    <main class="metri-subpage-main" style="padding-top: 72px;">
+      <div class="metri-app-container" style="padding-top: 10px;">
+
+    <!-- 100% Exact 3D Hero Banner Showcase (Matches Cerebrium Blog Hero Design) -->
+    <div class="registry-featured-hero-banner">
+      <div class="registry-hero-3d-wrapper">
+        <video class="registry-hero-3d-video" autoplay loop muted playsinline poster="/assets/cerebrium-blog-3d-bg.png">
+          <source src="/assets/cerebrium-blog-gpu-3d-model.mp4" type="video/mp4">
+          <img src="/assets/cerebrium-blog-3d-bg.png" alt="3D Model" class="registry-hero-3d-img">
+        </video>
+        <div class="registry-hero-glow-layer"></div>
+      </div>
+      
+      <div class="registry-hero-content">
+        <div class="registry-hero-meta">
+          <span class="registry-hero-tag">
+            <span class="metri-pulse-dot"></span>
+            OIML R-76-1:2006 (E) INSTRUMENT REGISTRY
+          </span>
+        </div>
+        <h1 class="registry-hero-title">
+          Statutory Instrument Registry: Pattern Evaluation &amp; Verification Continuum
+        </h1>
+        <p class="registry-hero-desc">
+          Automated OIML R 76-1:2006 (E) evaluation, Maximum Permissible Error (MPE) enforcement, and cryptographic evidence registry for Non-Automatic Weighing Instruments.
+        </p>
+      </div>
+    </div>
+
+    <!-- KPI Stats Grid -->
+    <div class="metri-stats-grid">
+      <div class="metri-card metri-stat-card">
+        <span class="metri-stat-label">Total Registered</span>
+        <span class="metri-stat-val" id="stat-total-inst">--</span>
+        <span class="metri-stat-trend trend-pink">● Live Database Inventory</span>
+      </div>
+      <div class="metri-card metri-stat-card">
+        <span class="metri-stat-label">In Testing</span>
+        <span class="metri-stat-val" id="stat-testing-inst">--</span>
+        <span class="metri-stat-trend trend-cyan">● Active Evaluations</span>
+      </div>
+      <div class="metri-card metri-stat-card">
+        <span class="metri-stat-label">Fully Evaluated</span>
+        <span class="metri-stat-val" id="stat-evaluated-inst">--</span>
+        <span class="metri-stat-trend trend-pass">● Compliance Certified</span>
+      </div>
+      <div class="metri-card metri-stat-card">
+        <span class="metri-stat-label">Accuracy Classes</span>
+        <span class="metri-stat-val">I, II, III, IIII</span>
+        <span class="metri-stat-trend trend-amber">● Statutory Standard OIML</span>
+      </div>
+    </div>
+
+    <!-- Toolbar: Search, Filter, Register -->
+    <div class="metri-toolbar">
+      <div class="metri-search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="inst-search-input" class="metri-search-input" placeholder="Search by model, serial no, or manufacturer..." />
+      </div>
+
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <select id="inst-class-filter" class="metri-select">
+          <option value="">All Accuracy Classes</option>
+          <option value="I">Class I (Special Accuracy)</option>
+          <option value="II">Class II (High Accuracy)</option>
+          <option value="III">Class III (Medium Accuracy)</option>
+          <option value="IIII">Class IIII (Ordinary Accuracy)</option>
+        </select>
+
+        <button id="btn-open-register-modal" class="metri-btn metri-btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Register Instrument
+        </button>
+      </div>
+    </div>
+
+    <!-- Instruments Table -->
+    <div class="metri-card" style="padding: 0; overflow: hidden;">
+      <div class="metri-table-wrap">
+        <table class="metri-table">
+          <thead>
+            <tr>
+              <th>Instrument / Model</th>
+              <th>Serial Number</th>
+              <th>Accuracy Class</th>
+              <th>Capacity &amp; Interval</th>
+              <th>Status</th>
+              <th>Manufacturer</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="instruments-tbody">
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 40px; color: #9ca3af;">
+                Loading instruments from database...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+    </div>
+  
+    </div>
+  </main>
+
+  <!-- Global Modal Mount Point -->
+  <div id="metri-global-modal" class="metri-modal-overlay">
+    <div class="metri-modal-content-card" id="metri-global-modal-content">
+      <!-- Modal Content Injected Dynamically -->
+    </div>
+  </div>
+
+    <!-- Unified Statutory Pre-Footer CTA Bar & Footer Wrapper -->
+    <div class="metri-footer-wrapper" style="margin-top: auto; width: 100%; background: transparent; position: relative; z-index: 50;">
+      <div class="metri-app-container" style="max-width: 1200px; margin: 0 auto 40px auto; padding: 0 28px; box-sizing: border-box; position: relative; z-index: 50;">
+        <div style="background: rgba(11, 15, 25, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 72, 139, 0.25); border-radius: 12px; padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);">
+          <div style="max-width: 640px;">
+            <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 6px 0; font-family: Outfit, sans-serif;">
+              Start automating OIML R-76 weighing tests today
+            </h3>
+            <p style="font-size: 13.5px; color: #94a3b8; margin: 0; line-height: 1.5;">
+              Execute non-automatic weighing instrument verification, turning point calculations, and generate certified statutory calibration certificates in seconds.
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a class="button group relative overflow-hidden isolate inline-flex justify-center items-center gap-2 rounded-sm bg-pink-500 text-charcoal py-3 px-6 font-bold" href="/evaluation-workspace" style="background: #ff488b; color: #101421; text-decoration: none; border-radius: 7px; font-weight: 700; font-size: 13.5px; padding: 11px 22px; display: inline-flex; align-items: center; transition: background 0.2s;" onmouseover="this.style.background='#ff609a'" onmouseout="this.style.background='#ff488b'">
+              Launch Evaluation &rarr;
+            </a>
+            <a class="button inline-flex justify-center items-center gap-2 rounded-sm bg-charcoal/35 backdrop-blur-lg text-white py-3 px-6" href="/OIML-Rule-Engine" style="background: rgba(16, 20, 33, 0.75); color: #fff; border: 1px solid rgba(255,255,255,0.15); text-decoration: none; border-radius: 7px; font-weight: 600; font-size: 13.5px; padding: 11px 22px; display: inline-flex; align-items: center; transition: all 0.2s;" onmouseover="this.style.borderColor='#ff488b'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'">
+              OIML Rule Engine &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Statutory Footer -->
+      <!-- Statutory Footer -->
+      <footer class="dark c-footer" data-background-canvas-inview data-scroll="true">
+        <div class="metri-footer-container">
+          
+          <!-- Top Grid Section (Balanced Side-by-Side 3 Columns on Desktop, Clean 1-Column Stacking on Mobile) -->
+          <div class="metri-footer-grid">
+            
+            <!-- Column 1: Brand & Metrology Authority -->
+            <div class="metri-footer-brand-col">
+              <!-- Logo & Version Badge -->
+              <div class="metri-footer-logo-row">
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 11px; background: linear-gradient(135deg, rgba(255,72,139,0.22) 0%, rgba(255,72,139,0.06) 100%); border: 1.5px solid rgba(255,72,139,0.45); color: #ff488b; box-shadow: 0 0 22px rgba(255,72,139,0.32);">
+                  <img src="/assets/metri-scale-logo-pink.png" alt="Metri-Report Statutory Emblem" style="width: 25px; height: 25px; object-fit: contain; display: block;" />
+                </span>
+                <span style="font-weight: 800; font-size: 21px; color: #ffffff; letter-spacing: -0.02em; font-family: 'Outfit', sans-serif;">Metri-Report</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; color: #ff488b; background: rgba(255,72,139,0.12); border: 1px solid rgba(255,72,139,0.28); padding: 3px 9px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.06em;">
+                  <span style="width: 5px; height: 5px; background: #ff488b; border-radius: 50%; box-shadow: 0 0 6px #ff488b;"></span>v2.4 STATUTORY
+                </span>
+              </div>
+              
+              <p class="metri-footer-desc">
+                Statutory metrology intelligence continuum for Non-Automatic Weighing Instruments (NAWI) enforcing OIML R-76, automated MPE calculations, and immutable ISO/IEC 17025 audit trails.
+              </p>
+
+              <!-- National Authority Stamp Pill -->
+              <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.08); padding: 7px 12px; border-radius: 8px; width: fit-content;">
+                <span style="font-size: 14px;">⚖️</span>
+                <span style="color: #cbd5e1; font-size: 12px; font-weight: 500; font-family: 'JetBrains Mono', monospace;">OIML R 76-1 / 76-2 Annex A</span>
+              </div>
+              
+              <!-- Social Media Icon Buttons -->
+              <div class="metri-footer-socials">
+                <a href="https://github.com/Avinraj01" target="_blank" rel="noopener noreferrer" class="metri-footer-social-btn" title="GitHub">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/avin-raj-203a762a2" target="_blank" rel="noopener noreferrer" class="metri-footer-social-btn" title="LinkedIn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.46a1.59 1.59 0 1 0 0 3.18 1.59 1.59 0 0 0 0-3.18z"/></svg>
+                </a>
+                <a href="mailto:avinraj.jamia@gmail.com" target="_blank" rel="noopener noreferrer" class="metri-footer-social-btn" title="Gmail (avinraj.jamia@gmail.com)">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.272H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@Team-SuperNovaZ" target="_blank" rel="noopener noreferrer" class="metri-footer-social-btn" title="YouTube (@Team-SuperNovaZ)">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Column 2: Statutory Modules -->
+            <div>
+              <h4 class="metri-footer-heading">
+                <span style="width: 7px; height: 7px; background: #ff488b; border-radius: 2px; box-shadow: 0 0 8px #ff488b;"></span>
+                Statutory Modules
+              </h4>
+              <ul class="metri-footer-modules-list">
+                <li>
+                  <a href="/instrument-registry" style="color: #ff488b; font-weight: 600;">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> Instrument Registry
+                  </a>
+                </li>
+                <li>
+                  <a href="/evaluation-workspace">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> Evaluation Workspace
+                  </a>
+                </li>
+                <li>
+                  <a href="/report-archive">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> Report Archive
+                  </a>
+                </li>
+                <li>
+                  <a href="/evidence-&-vault">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> Cryptographic Vault
+                  </a>
+                </li>
+                <li>
+                  <a href="/user-privileges-&-rbac">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> User Privileges &amp; RBAC
+                  </a>
+                </li>
+                <li>
+                  <a href="/audit-trail-log">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> Audit Trail Log
+                  </a>
+                </li>
+                <li>
+                  <a href="/OIML-Rule-Engine">
+                    <span style="color: #ff488b; font-size: 13px; font-weight: 700;">›</span> OIML Rule Engine
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Statutory Standards & Accreditations Cards -->
+            <div>
+              <h4 class="metri-footer-heading">
+                <span style="width: 7px; height: 7px; background: #10b981; border-radius: 2px; box-shadow: 0 0 8px #10b981;"></span>
+                Statutory Standards &amp; Accreditations
+              </h4>
+              <div class="metri-footer-cards">
+                
+                <div class="metri-footer-card" onmouseover="this.style.borderColor='rgba(16,185,129,0.5)'; this.style.background='rgba(16,185,129,0.06)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(16, 20, 33, 0.6)';">
+                  <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(16,185,129,0.15); color: #10b981; font-weight: 800; font-size: 12px; flex-shrink: 0;">✓</span>
+                    <div style="min-width: 0;">
+                      <div style="color: #f1f5f9; font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">OIML R 76-1:2006 (E)</div>
+                      <div class="metri-card-sub" style="color: #64748b; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Non-Automatic Weighing Instruments</div>
+                    </div>
+                  </div>
+                  <span style="font-size: 11px; color: #10b981; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); padding: 3px 9px; border-radius: 9999px; font-weight: 700; letter-spacing: 0.03em; flex-shrink: 0;">Enforced</span>
+                </div>
+
+                <div class="metri-footer-card" onmouseover="this.style.borderColor='rgba(56,189,248,0.5)'; this.style.background='rgba(56,189,248,0.06)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(16, 20, 33, 0.6)';">
+                  <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(56,189,248,0.15); color: #38bdf8; font-weight: 800; font-size: 12px; flex-shrink: 0;">✓</span>
+                    <div style="min-width: 0;">
+                      <div style="color: #f1f5f9; font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">ISO/IEC 17025:2017</div>
+                      <div class="metri-card-sub" style="color: #64748b; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Testing &amp; Calibration Labs</div>
+                    </div>
+                  </div>
+                  <span style="font-size: 11px; color: #38bdf8; background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); padding: 3px 9px; border-radius: 9999px; font-weight: 700; letter-spacing: 0.03em; flex-shrink: 0;">Calibrated</span>
+                </div>
+
+                <div class="metri-footer-card" onmouseover="this.style.borderColor='rgba(168,85,247,0.5)'; this.style.background='rgba(168,85,247,0.06)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(16, 20, 33, 0.6)';">
+                  <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(168,85,247,0.15); color: #a855f7; font-weight: 800; font-size: 12px; flex-shrink: 0;">✓</span>
+                    <div style="min-width: 0;">
+                      <div style="color: #f1f5f9; font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">WELMEC 7.2 Software</div>
+                      <div class="metri-card-sub" style="color: #64748b; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Measuring Instruments Directive</div>
+                    </div>
+                  </div>
+                  <span style="font-size: 11px; color: #a855f7; background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.3); padding: 3px 9px; border-radius: 9999px; font-weight: 700; letter-spacing: 0.03em; flex-shrink: 0;">Class P/U</span>
+                </div>
+
+                <div class="metri-footer-card" onmouseover="this.style.borderColor='rgba(16,185,129,0.5)'; this.style.background='rgba(16,185,129,0.06)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.background='rgba(16, 20, 33, 0.6)';">
+                  <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 6px; background: rgba(16,185,129,0.15); color: #10b981; font-weight: 800; font-size: 12px; flex-shrink: 0;">✓</span>
+                    <div style="min-width: 0;">
+                      <div style="color: #f1f5f9; font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">21 CFR Part 11 Audit</div>
+                      <div class="metri-card-sub" style="color: #64748b; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Cryptographic Records</div>
+                    </div>
+                  </div>
+                  <span style="font-size: 11px; color: #10b981; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); padding: 3px 9px; border-radius: 9999px; font-weight: 700; letter-spacing: 0.03em; flex-shrink: 0;">Verified</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Bar with Legal & Copyright -->
+          <div class="metri-footer-bottom">
+            <div>&copy; 2026 Metri-Report Metrology Systems. All statutory rights reserved.</div>
+            <div class="metri-footer-bottom-links">
+              <a href="/instrument-registry" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Brand Assets</a>
+              <a href="/privacy" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Privacy Policy</a>
+              <a href="/terms-of-service" style="color: #64748b; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='#64748b'">Terms of Service</a>
+              <span class="metri-footer-seal-badge">
+                <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 8px #10b981; flex-shrink: 0;"></span>Statutory Cryptographic Seal Active (SHA-256)
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+  </div>
+
+  <!-- Core MetriReport Scripts -->
+  <script src="/login-gate.js?v=2.2"></script>
+  <script src="/metri-engine.js?v=2.2.2"></script>
+
+  <!-- Mobile Menu Logic & Global Modal Handler -->
+  <script>
+    (function() {
+      // Global Modal Functions
+      window.openMetriModal = function(htmlContent) {
+        const modal = document.getElementById('metri-global-modal');
+        const card = document.getElementById('metri-global-modal-content');
+        if (modal && card) {
+          card.innerHTML = htmlContent;
+          modal.classList.add('active');
+        }
+      };
+
+      window.closeMetriModal = function() {
+        const modal = document.getElementById('metri-global-modal');
+        if (modal) {
+          modal.classList.remove('active');
+        }
+      };
+
+      const globalModal = document.getElementById('metri-global-modal');
+      if (globalModal) {
+        globalModal.addEventListener('click', function(e) {
+          if (e.target === globalModal) {
+            closeMetriModal();
+          }
+        });
+      }
+    })();
+  </script>
+
+  <!-- Page Specific Logic Scripts -->
+  <script>
+(function () {
+      let instrumentsData = [];
+
+      async function loadInstruments() {
+        const search = document.getElementById('inst-search-input').value.trim();
+        const cls = document.getElementById('inst-class-filter').value;
+        const tbody = document.getElementById('instruments-tbody');
+
+        try {
+          try {
+            instrumentsData = await MetriEngine.api.getInstruments(search, cls);
+          } catch (apiErr) {
+            console.warn('[InstrumentRegistry] MetriEngine.api.getInstruments failed. Retrying direct fetch...', apiErr);
+            localStorage.removeItem('token');
+            localStorage.removeItem('metri_token');
+            localStorage.removeItem('metri_access_token');
+            let q = [];
+            if (search) q.push(`search=${encodeURIComponent(search)}`);
+            if (cls) q.push(`accuracy_class=${encodeURIComponent(cls)}`);
+            const fallbackRes = await fetch(`/api/instruments${q.length ? '?' + q.join('&') : ''}`);
+            if (fallbackRes.ok) {
+              instrumentsData = await fallbackRes.json();
+            } else {
+              throw apiErr;
+            }
+          }
+          
+          // Update KPI Stats
+          document.getElementById('stat-total-inst').textContent = instrumentsData.length;
+          document.getElementById('stat-testing-inst').textContent = instrumentsData.filter(i => i.status === 'IN_TESTING').length;
+          document.getElementById('stat-evaluated-inst').textContent = instrumentsData.filter(i => i.status === 'EVALUATED').length;
+
+          if (instrumentsData.length === 0) {
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="7" style="text-align: center; padding: 48px; color: #9ca3af;">
+                  No instruments matching your criteria found in registry.
+                </td>
+              </tr>
+            `;
+            return;
+          }
+
+          tbody.innerHTML = instrumentsData.map(inst => {
+            let statusTag = `<span class="metri-tag metri-tag-registered">Registered</span>`;
+            if (inst.status === 'IN_TESTING') statusTag = `<span class="metri-tag metri-tag-testing">In Testing</span>`;
+            if (inst.status === 'EVALUATED') statusTag = `<span class="metri-tag metri-tag-pass">Evaluated</span>`;
+
+            return `
+              <tr>
+                <td>
+                  <div style="font-weight: 700; color: #fff;">${inst.instrument_name}</div>
+                  <div style="font-size: 12px; color: #9ca3af;">Model: <span style="color: #ff488b;">${inst.model}</span></div>
+                </td>
+                <td style="font-family: monospace; font-size: 13px; color: #38bdf8;">
+                  ${inst.serial_number}
+                </td>
+                <td>
+                  <span style="font-weight: 700; color: #ff70a6;">Class ${inst.accuracy_class}</span>
+                </td>
+                <td>
+                  <div>Max: <strong>${inst.max_capacity} ${inst.unit}</strong></div>
+                  <div style="font-size: 12px; color: #9ca3af;">e = ${inst.e_value} ${inst.unit} | d = ${inst.d_value} ${inst.unit}</div>
+                </td>
+                <td>${statusTag}</td>
+                <td style="font-size: 13px; color: #cbd5e1;">${inst.manufacturer || 'N/A'}</td>
+                <td style="text-align: right; white-space: nowrap;">
+                  <button class="metri-btn metri-btn-secondary metri-btn-sm" onclick="showInstrumentDetail('${inst.id}')">
+                    Inspect
+                  </button>
+                  <a href="/evaluation-workspace?instrumentId=${inst.id}" class="metri-btn metri-btn-primary metri-btn-sm" style="margin-left: 6px;">
+                    Evaluate &rarr;
+                  </a>
+                </td>
+              </tr>
+            `;
+          }).join('');
+
+        } catch (err) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 40px; color: #ef4444;">
+                <div style="font-weight: 600; margin-bottom: 8px;">Error loading instruments: ${err.message}</div>
+                <button class="metri-btn metri-btn-secondary metri-btn-sm" onclick="localStorage.removeItem('metri_token'); localStorage.removeItem('token'); window.loadInstruments && window.loadInstruments();" style="cursor: pointer; margin-top: 6px;">
+                  &#8635; Retry Connection
+                </button>
+              </td>
+            </tr>
+          `;
+        }
+      }
+
+      window.loadInstruments = loadInstruments;
+
+      // Search & Filter listeners
+      document.getElementById('inst-search-input').addEventListener('input', () => {
+        clearTimeout(window._searchTimer);
+        window._searchTimer = setTimeout(loadInstruments, 250);
+      });
+      document.getElementById('inst-class-filter').addEventListener('change', loadInstruments);
+
+      // Detail Modal
+      window.showInstrumentDetail = function (id) {
+        const inst = instrumentsData.find(i => i.id === id);
+        if (!inst) return;
+
+        openMetriModal(`
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+            <div>
+              <span class="metri-badge-pill">OIML R-76 Class ${inst.accuracy_class}</span>
+              <h2 style="margin: 8px 0 0 0; font-size: 24px; color: #fff;">${inst.instrument_name}</h2>
+              <div style="color: #9ca3af; font-size: 13px;">Serial Number: <span style="color: #38bdf8; font-family: monospace;">${inst.serial_number}</span></div>
+            </div>
+            <button onclick="closeMetriModal()" style="background: transparent; border: none; color: #9ca3af; font-size: 24px; cursor: pointer;">&times;</button>
+          </div>
+
+          <div class="metri-form-grid" style="font-size: 13.5px;">
+            <div class="metri-card" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Model Number</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">${inst.model}</div>
+            </div>
+            <div class="metri-card" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Manufacturer</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">${inst.manufacturer || 'WeighTech India'}</div>
+            </div>
+            <div class="metri-card" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Capacity Range</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">Min ${inst.min_capacity} ${inst.unit} &mdash; Max ${inst.max_capacity} ${inst.unit}</div>
+            </div>
+            <div class="metri-card" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Verification Scale Interval (e)</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">e = ${inst.e_value} ${inst.unit} (d = ${inst.d_value} ${inst.unit})</div>
+            </div>
+            <div class="metri-card" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Load Receptor Type</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">${inst.load_receptor_type || 'Platform'} (${inst.num_support_points || 4} Support Points)</div>
+            </div>
+            <div class="metri-card" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Software &amp; Firmware</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">${inst.software_version || 'v2.4.1'} | ${inst.firmware_id || 'FW-REV-100'}</div>
+            </div>
+            <div class="metri-card metri-form-full" style="padding: 16px;">
+              <div style="color: #9ca3af; font-size: 12px;">Operating Temperature Range</div>
+              <div style="font-weight: 700; color: #fff; margin-top: 4px;">${inst.temp_min}&deg;C to ${inst.temp_max}&deg;C | Nominal Voltage: ${inst.voltage_nominal || 230} V AC</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+            <button class="metri-btn metri-btn-secondary" onclick="closeMetriModal()">Close</button>
+            <a href="/evaluation-workspace?instrumentId=${inst.id}" class="metri-btn metri-btn-primary">
+              Start OIML Test Session &rarr;
+            </a>
+          </div>
+        `);
+      };
+
+      // Register Modal
+      document.getElementById('btn-open-register-modal').addEventListener('click', () => {
+        openMetriModal(`
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+            <div>
+              <h2 style="margin: 0; font-size: 22px; color: #fff;">Register New Instrument</h2>
+              <p style="margin: 4px 0 0 0; color: #9ca3af; font-size: 13px;">OIML R 76-1 Statutory NAWI Device Pattern Registration</p>
+            </div>
+            <button onclick="closeMetriModal()" style="background: transparent; border: none; color: #9ca3af; font-size: 24px; cursor: pointer;">&times;</button>
+          </div>
+
+          <form id="form-register-inst" onsubmit="handleRegisterSubmit(event)">
+            <div class="metri-form-grid">
+              <div class="metri-form-group">
+                <label class="metri-form-label">Instrument Name *</label>
+                <input type="text" id="reg-name" class="metri-form-input" placeholder="e.g. Heavy Duty Platform Scale" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Model Identifier *</label>
+                <input type="text" id="reg-model" class="metri-form-input" placeholder="e.g. MW-3000-HD" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Serial Number *</label>
+                <input type="text" id="reg-sn" class="metri-form-input" placeholder="e.g. SN-2026-IND-901" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Accuracy Class *</label>
+                <select id="reg-class" class="metri-select" style="width: 100%;">
+                  <option value="III" selected>Class III (Medium Accuracy)</option>
+                  <option value="II">Class II (High Accuracy)</option>
+                  <option value="I">Class I (Special Accuracy)</option>
+                  <option value="IIII">Class IIII (Ordinary Accuracy)</option>
+                </select>
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Maximum Capacity (Max) *</label>
+                <input type="number" step="any" id="reg-max" class="metri-form-input" value="3000" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Minimum Capacity (Min) *</label>
+                <input type="number" step="any" id="reg-min" class="metri-form-input" value="20" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Verification Scale Interval (e) *</label>
+                <input type="number" step="any" id="reg-e" class="metri-form-input" value="1.0" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Actual Scale Interval (d) *</label>
+                <input type="number" step="any" id="reg-d" class="metri-form-input" value="1.0" required />
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Unit of Measure *</label>
+                <select id="reg-unit" class="metri-select" style="width: 100%;">
+                  <option value="kg" selected>kg (Kilogram)</option>
+                  <option value="g">g (Gram)</option>
+                  <option value="t">t (Metric Ton)</option>
+                </select>
+              </div>
+              <div class="metri-form-group">
+                <label class="metri-form-label">Manufacturer Name</label>
+                <input type="text" id="reg-mfr" class="metri-form-input" placeholder="WeighTech Instruments Ltd." value="WeighTech Metrology India Ltd." />
+              </div>
+            </div>
+
+            <div id="reg-error" style="display: none; color: #ef4444; font-size: 13px; margin-top: 14px;"></div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+              <button type="button" class="metri-btn metri-btn-secondary" onclick="closeMetriModal()">Cancel</button>
+              <button type="submit" id="btn-save-inst" class="metri-btn metri-btn-primary">
+                Save &amp; Register
+              </button>
+            </div>
+          </form>
+        `);
+      });
+
+      window.handleRegisterSubmit = async function (e) {
+        e.preventDefault();
+        const errDiv = document.getElementById('reg-error');
+        const saveBtn = document.getElementById('btn-save-inst');
+        errDiv.style.display = 'none';
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Saving...';
+
+        const payload = {
+          instrument_name: document.getElementById('reg-name').value.trim(),
+          model: document.getElementById('reg-model').value.trim(),
+          serial_number: document.getElementById('reg-sn').value.trim(),
+          accuracy_class: document.getElementById('reg-class').value,
+          max_capacity: parseFloat(document.getElementById('reg-max').value),
+          min_capacity: parseFloat(document.getElementById('reg-min').value),
+          e_value: parseFloat(document.getElementById('reg-e').value),
+          d_value: parseFloat(document.getElementById('reg-d').value),
+          unit: document.getElementById('reg-unit').value,
+          manufacturer: document.getElementById('reg-mfr').value.trim(),
+          load_receptor_type: 'Platform',
+          num_support_points: 4,
+          is_electronic: true,
+          is_self_indicating: true
+        };
+
+        try {
+          await MetriEngine.api.createInstrument(payload);
+          closeMetriModal();
+          await loadInstruments();
+        } catch (err) {
+          errDiv.textContent = err.message || 'Failed to register instrument.';
+          errDiv.style.display = 'block';
+          saveBtn.disabled = false;
+          saveBtn.textContent = 'Save & Register';
+        }
+      };
+
+      // Initial Load
+      loadInstruments();
+
+      // Ensure 100% video playback
+      const bgVideo = document.querySelector('.registry-3d-video');
+      if (bgVideo) {
+        bgVideo.play().catch(() => {});
+      }
+    })();
+  </script>
+  <script src="/metri-app.js"></script>
+  <script src="/subpage-shell.js"></script>
+  </div> <!-- /#swup -->
+</body>
+</html>

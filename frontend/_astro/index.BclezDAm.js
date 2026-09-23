@@ -1,0 +1,1 @@
+import{a as n}from"./component-manager.modern.DNc_OPSh.js";const f=(o={})=>{let e=n(o);return e.setKey=function(a,t){let l=e.value;typeof t>"u"&&a in e.value?(e.value={...e.value},delete e.value[a],e.notify(l,a)):e.value[a]!==t&&(e.value={...e.value,[a]:t},e.notify(l,a))},e};export{f as m};

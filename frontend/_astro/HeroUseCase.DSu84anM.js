@@ -1,0 +1,1 @@
+import{i as e}from"./component-manager.modern.DNc_OPSh.js";class s extends HTMLElement{constructor(){super()}connectedCallback(){window.addEventListener("heroUseCase",this.onScrollProgress)}disconnectedCallback(){window.removeEventListener("heroUseCase",this.onScrollProgress)}onScrollProgress(r){}}customElements.define("c-hero-use-case",e(s,"HeroUseCase"));export{s as default};
