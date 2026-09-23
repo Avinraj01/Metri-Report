@@ -100,38 +100,50 @@
   // 6. Unified Mobile Menu Drawer Handler
   function initMobileMenu() {
     const overlay = document.querySelector("[data-menu-overlay], .c-header_overlay");
-    const mobileLinks = document.querySelectorAll(".c-header_mobile_menu_link, .c-header_mobile_menu_buttons a");
+    const mobileMenu = document.querySelector("[data-menu-mobile], .c-header_mobile_menu");
+    const mobileLinks = document.querySelectorAll(".c-header_mobile_menu_link, .c-header_mobile_menu_buttons a, .c-header_mobile_menu_buttons button");
 
-    window.toggleMetriMobileMenu = function (e) {
-      if (e) {
-        if (typeof e.preventDefault === 'function') e.preventDefault();
-        if (typeof e.stopPropagation === 'function') e.stopPropagation();
-      }
+    function isMenuOpen() {
+      return document.documentElement.classList.contains('has-menu-mobile-open') ||
+             document.documentElement.classList.contains('is-menu-open') ||
+             (mobileMenu && mobileMenu.classList.contains('is-active'));
+    }
+
+    window.openMetriMobileMenu = function () {
       const header = document.querySelector('header.c-header, .c-header, [data-menu-header]');
-      const isOpen = document.documentElement.classList.contains('has-menu-mobile-open') ||
-                     document.documentElement.classList.contains('is-menu-open') ||
-                     (header && header.classList.contains('is-menu-open'));
-
-      const willBeOpen = !isOpen;
-
-      document.documentElement.classList.toggle('has-menu-mobile-open', willBeOpen);
-      document.documentElement.classList.toggle('is-menu-open', willBeOpen);
-      document.body.classList.toggle('has-menu-mobile-open', willBeOpen);
-      document.body.classList.toggle('is-menu-open', willBeOpen);
-
+      document.documentElement.classList.add('has-menu-mobile-open', 'is-menu-open');
+      document.body.classList.add('has-menu-mobile-open', 'is-menu-open');
       if (header) {
-        header.classList.toggle('is-menu-open', willBeOpen);
-        header.classList.toggle('has-menu-mobile-open', willBeOpen);
-        if (willBeOpen) {
-          header.classList.remove('is-header-hidden');
-          header.classList.add('is-header-visible');
+        header.classList.add('is-menu-open', 'has-menu-mobile-open', 'is-header-visible');
+        header.classList.remove('is-header-hidden');
+      }
+      if (mobileMenu) {
+        mobileMenu.classList.add('is-active');
+        mobileMenu.style.setProperty('display', 'block', 'important');
+        mobileMenu.style.setProperty('opacity', '1', 'important');
+        mobileMenu.style.setProperty('visibility', 'visible', 'important');
+        mobileMenu.style.setProperty('pointer-events', 'auto', 'important');
+
+        const scrollEl = mobileMenu.querySelector('.c-header_mobile_menu_scroll');
+        if (scrollEl) {
+          scrollEl.style.setProperty('opacity', '1', 'important');
+          scrollEl.style.setProperty('clip-path', 'none', 'important');
+          scrollEl.style.setProperty('-webkit-clip-path', 'none', 'important');
+          scrollEl.style.setProperty('visibility', 'visible', 'important');
+          scrollEl.style.setProperty('display', 'flex', 'important');
+          scrollEl.style.setProperty('pointer-events', 'auto', 'important');
         }
       }
-
+      if (overlay) {
+        overlay.classList.add('is-active');
+        overlay.style.setProperty('display', 'block', 'important');
+        overlay.style.setProperty('opacity', '1', 'important');
+        overlay.style.setProperty('visibility', 'visible', 'important');
+        overlay.style.setProperty('pointer-events', 'auto', 'important');
+      }
       const toggles = document.querySelectorAll('[data-menu-mobile-toggle], .c-header_mobile_menu_toggle');
-      toggles.forEach(t => {
-        t.setAttribute('aria-expanded', willBeOpen ? 'true' : 'false');
-      });
+      toggles.forEach(t => t.setAttribute('aria-expanded', 'true'));
+      document.body.style.overflow = 'hidden';
     };
 
     window.closeMetriMobileMenu = function () {
@@ -141,8 +153,35 @@
       if (header) {
         header.classList.remove('is-menu-open', 'has-menu-mobile-open');
       }
+      if (mobileMenu) {
+        mobileMenu.classList.remove('is-active');
+        mobileMenu.style.setProperty('display', 'none', 'important');
+        mobileMenu.style.setProperty('opacity', '0', 'important');
+        mobileMenu.style.setProperty('visibility', 'hidden', 'important');
+        mobileMenu.style.setProperty('pointer-events', 'none', 'important');
+      }
+      if (overlay) {
+        overlay.classList.remove('is-active');
+        overlay.style.setProperty('display', 'none', 'important');
+        overlay.style.setProperty('opacity', '0', 'important');
+        overlay.style.setProperty('visibility', 'hidden', 'important');
+        overlay.style.setProperty('pointer-events', 'none', 'important');
+      }
       const toggles = document.querySelectorAll('[data-menu-mobile-toggle], .c-header_mobile_menu_toggle');
       toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+      document.body.style.overflow = '';
+    };
+
+    window.toggleMetriMobileMenu = function (e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
+      if (isMenuOpen()) {
+        window.closeMetriMobileMenu();
+      } else {
+        window.openMetriMobileMenu();
+      }
     };
 
     if (overlay) {

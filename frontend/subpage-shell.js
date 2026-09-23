@@ -134,6 +134,8 @@
     }
 
     const header = document.querySelector('header.c-header, .c-header, [data-menu-header]');
+    const mobileMenu = document.querySelector("[data-menu-mobile], .c-header_mobile_menu");
+    const overlay = document.querySelector("[data-menu-overlay], .c-header_overlay");
     const willBeOpen = !isMobileMenuOpen();
 
     document.documentElement.classList.toggle('has-menu-mobile-open', willBeOpen);
@@ -150,19 +152,64 @@
       }
     }
 
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('is-active', willBeOpen);
+      mobileMenu.style.setProperty('display', willBeOpen ? 'block' : 'none', 'important');
+      mobileMenu.style.setProperty('opacity', willBeOpen ? '1' : '0', 'important');
+      mobileMenu.style.setProperty('visibility', willBeOpen ? 'visible' : 'hidden', 'important');
+      mobileMenu.style.setProperty('pointer-events', willBeOpen ? 'auto' : 'none', 'important');
+
+      const scrollEl = mobileMenu.querySelector('.c-header_mobile_menu_scroll');
+      if (scrollEl) {
+        scrollEl.style.setProperty('opacity', willBeOpen ? '1' : '0', 'important');
+        scrollEl.style.setProperty('clip-path', willBeOpen ? 'none' : '', 'important');
+        scrollEl.style.setProperty('-webkit-clip-path', willBeOpen ? 'none' : '', 'important');
+        scrollEl.style.setProperty('visibility', willBeOpen ? 'visible' : 'hidden', 'important');
+        scrollEl.style.setProperty('display', willBeOpen ? 'flex' : 'none', 'important');
+        scrollEl.style.setProperty('pointer-events', willBeOpen ? 'auto' : 'none', 'important');
+      }
+    }
+
+    if (overlay) {
+      overlay.classList.toggle('is-active', willBeOpen);
+      overlay.style.setProperty('display', willBeOpen ? 'block' : 'none', 'important');
+      overlay.style.setProperty('opacity', willBeOpen ? '1' : '0', 'important');
+      overlay.style.setProperty('visibility', willBeOpen ? 'visible' : 'hidden', 'important');
+      overlay.style.setProperty('pointer-events', willBeOpen ? 'auto' : 'none', 'important');
+    }
+
     const toggles = document.querySelectorAll('[data-menu-mobile-toggle], .c-header_mobile_menu_toggle');
     toggles.forEach(t => t.setAttribute('aria-expanded', willBeOpen ? 'true' : 'false'));
+    document.body.style.overflow = willBeOpen ? 'hidden' : '';
   };
 
   window.closeMetriMobileMenu = function () {
     const header = document.querySelector('header.c-header, .c-header, [data-menu-header]');
+    const mobileMenu = document.querySelector("[data-menu-mobile], .c-header_mobile_menu");
+    const overlay = document.querySelector("[data-menu-overlay], .c-header_overlay");
+
     document.documentElement.classList.remove('has-menu-mobile-open', 'is-menu-open');
     document.body.classList.remove('has-menu-mobile-open', 'is-menu-open');
     if (header) {
       header.classList.remove('is-menu-open', 'has-menu-mobile-open');
     }
+    if (mobileMenu) {
+      mobileMenu.classList.remove('is-active');
+      mobileMenu.style.setProperty('display', 'none', 'important');
+      mobileMenu.style.setProperty('opacity', '0', 'important');
+      mobileMenu.style.setProperty('visibility', 'hidden', 'important');
+      mobileMenu.style.setProperty('pointer-events', 'none', 'important');
+    }
+    if (overlay) {
+      overlay.classList.remove('is-active');
+      overlay.style.setProperty('display', 'none', 'important');
+      overlay.style.setProperty('opacity', '0', 'important');
+      overlay.style.setProperty('visibility', 'hidden', 'important');
+      overlay.style.setProperty('pointer-events', 'none', 'important');
+    }
     const toggles = document.querySelectorAll('[data-menu-mobile-toggle], .c-header_mobile_menu_toggle');
     toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+    document.body.style.overflow = '';
   };
 
   // Bind close on overlay, link click, or outside click safely
