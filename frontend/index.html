@@ -3,7 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="/login-gate.css">
-  <link rel="stylesheet" href="/subpage-shell.css?v=3.7">
+  <link rel="stylesheet" href="/subpage-shell.css?v=3.8">
   <style>
     header.c-header,
     .c-header {
@@ -10642,6 +10642,13 @@
     header.is-menu-open .c-header_mobile_menu,
     header.has-menu-mobile-open .c-header_mobile_menu,
     .c-header.is-menu-open .c-header_mobile_menu,
+    html.has-menu-mobile-open .c-header_mobile_menu,
+    html.is-menu-open .c-header_mobile_menu,
+    body.has-menu-mobile-open .c-header_mobile_menu,
+    body.is-menu-open .c-header_mobile_menu,
+    header.is-menu-open .c-header_mobile_menu,
+    header.has-menu-mobile-open .c-header_mobile_menu,
+    .c-header.is-menu-open .c-header_mobile_menu,
     .c-header.has-menu-mobile-open .c-header_mobile_menu,
     .c-header_mobile_menu.is-active,
     html.has-menu-mobile-open [data-menu-mobile],
@@ -10649,7 +10656,10 @@
       opacity: 1 !important;
       visibility: visible !important;
       pointer-events: auto !important;
-      display: block !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
       z-index: 9999999 !important;
     }
 
@@ -10677,10 +10687,12 @@
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      margin: 8px auto 20px !important;
+      margin: 8px auto 16px !important;
       width: calc(100vw - 16px) !important;
       max-width: 440px !important;
-      max-height: calc(100dvh - 65px) !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: calc(100dvh - 60px) !important;
       background: linear-gradient(180deg, #111626 0%, #080b16 100%) !important;
       border: 1.5px solid rgba(255, 72, 139, 0.45) !important;
       border-radius: 14px !important;
@@ -10690,13 +10702,15 @@
       overflow-x: hidden !important;
       padding: 0 !important;
       z-index: 10 !important;
+      flex: 0 0 auto !important;
+      display: block !important;
     }
 
     .c-header_mobile_menu_scroll {
-      padding: 12px 10px 14px !important;
+      padding: 10px 10px 10px !important;
       display: flex !important;
       flex-direction: column !important;
-      gap: 8px !important;
+      gap: 6px !important;
       background: transparent !important;
       color: #ffffff !important;
       opacity: 1 !important;
@@ -10706,6 +10720,10 @@
       pointer-events: auto !important;
       overflow: visible !important;
       border-radius: 14px !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      flex: 0 0 auto !important;
     }
 
     .c-header_mobile_menu_list {
@@ -10718,6 +10736,7 @@
       width: 100% !important;
       z-index: 2 !important;
       position: relative !important;
+      flex: 0 0 auto !important;
     }
 
     .c-header_mobile_menu_item {
@@ -10825,9 +10844,11 @@
     .c-header_mobile_menu_buttons {
       display: flex !important;
       flex-direction: column !important;
-      gap: 7px !important;
-      margin-top: 8px !important;
-      padding-top: 8px !important;
+      gap: 6px !important;
+      margin-top: 6px !important;
+      padding-top: 6px !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
       border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
       transform: none !important;
       width: 100% !important;
@@ -10835,6 +10856,7 @@
       z-index: 2 !important;
       opacity: 1 !important;
       visibility: visible !important;
+      flex: 0 0 auto !important;
     }
 
     .c-header_mobile_menu_buttons > div,
