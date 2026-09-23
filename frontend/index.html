@@ -3,7 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="/login-gate.css">
-  <link rel="stylesheet" href="/subpage-shell.css?v=3.2">
+  <link rel="stylesheet" href="/subpage-shell.css?v=3.5">
   <style>
     header.c-header,
     .c-header {
@@ -10585,40 +10585,321 @@
       }
     }
 
+    /* ==========================================================================
+       METRI-REPORT MOBILE MENU DRAWER (Mobile S 320px & Mobile Viewports)
+       Crystal-Clear, High-Contrast, Sleek Glassmorphism Drawer
+       ========================================================================== */
+
+    .c-header_mobile_menu,
+    [data-menu-mobile] {
+      display: none !important;
+      position: fixed !important;
+      top: 48px !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: calc(100vh - 48px) !important;
+      height: calc(100dvh - 48px) !important;
+      background: transparent !important;
+      z-index: 9999999 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    .c-header_overlay,
+    [data-menu-overlay] {
+      display: none !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background: rgba(4, 7, 15, 0.85) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+      z-index: 9999998 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transition: opacity 0.25s ease !important;
+    }
+
     /* Guaranteed Mobile Menu Drawer Display on Home */
     html.has-menu-mobile-open .c-header_mobile_menu,
     html.is-menu-open .c-header_mobile_menu,
     body.has-menu-mobile-open .c-header_mobile_menu,
+    body.is-menu-open .c-header_mobile_menu,
     header.is-menu-open .c-header_mobile_menu,
-    .c-header.is-menu-open .c-header_mobile_menu {
+    header.has-menu-mobile-open .c-header_mobile_menu,
+    .c-header.is-menu-open .c-header_mobile_menu,
+    .c-header.has-menu-mobile-open .c-header_mobile_menu,
+    .c-header_mobile_menu.is-active,
+    html.has-menu-mobile-open [data-menu-mobile],
+    html.is-menu-open [data-menu-mobile] {
       opacity: 1 !important;
       visibility: visible !important;
       pointer-events: auto !important;
       display: block !important;
-      z-index: 999999 !important;
-    }
-
-    html.has-menu-mobile-open .c-header_mobile_menu_inner,
-    html.is-menu-open .c-header_mobile_menu_inner,
-    header.is-menu-open .c-header_mobile_menu_inner {
-      pointer-events: auto !important;
-    }
-
-    html.has-menu-mobile-open .c-header_mobile_menu_scroll,
-    html.is-menu-open .c-header_mobile_menu_scroll,
-    header.is-menu-open .c-header_mobile_menu_scroll {
-      opacity: 1 !important;
-      clip-path: inset(0% round var(--radius-sm, 12px)) !important;
-      pointer-events: auto !important;
+      z-index: 9999999 !important;
     }
 
     html.has-menu-mobile-open .c-header_overlay,
     html.is-menu-open .c-header_overlay,
-    header.is-menu-open .c-header_overlay {
-      opacity: 0.8 !important;
+    body.has-menu-mobile-open .c-header_overlay,
+    body.is-menu-open .c-header_overlay,
+    header.is-menu-open .c-header_overlay,
+    header.has-menu-mobile-open .c-header_overlay,
+    .c-header.is-menu-open .c-header_overlay,
+    .c-header.has-menu-mobile-open .c-header_overlay,
+    .c-header_overlay.is-active,
+    html.has-menu-mobile-open [data-menu-overlay],
+    html.is-menu-open [data-menu-overlay] {
+      opacity: 1 !important;
       pointer-events: auto !important;
       display: block !important;
-      z-index: 999998 !important;
+      visibility: visible !important;
+      z-index: 9999998 !important;
+    }
+
+    .c-header_mobile_menu_inner,
+    [data-menu-mobile-inner] {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      margin: 8px auto 20px !important;
+      width: calc(100vw - 16px) !important;
+      max-width: 440px !important;
+      max-height: calc(100dvh - 65px) !important;
+      background: linear-gradient(180deg, #111626 0%, #080b16 100%) !important;
+      border: 1.5px solid rgba(255, 72, 139, 0.45) !important;
+      border-radius: 14px !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 72, 139, 0.22) !important;
+      pointer-events: auto !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding: 0 !important;
+      z-index: 10 !important;
+    }
+
+    .c-header_mobile_menu_scroll {
+      padding: 12px 10px 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      background: transparent !important;
+      color: #ffffff !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      clip-path: none !important;
+      -webkit-clip-path: none !important;
+      pointer-events: auto !important;
+      overflow: visible !important;
+      border-radius: 14px !important;
+    }
+
+    .c-header_mobile_menu_list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 4px !important;
+      width: 100% !important;
+      z-index: 2 !important;
+      position: relative !important;
+    }
+
+    .c-header_mobile_menu_item {
+      display: block !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .c-header_mobile_menu_link {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      width: 100% !important;
+      min-height: 38px !important;
+      padding: 7px 10px !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      color: #ffffff !important;
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.01em !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      transition: all 0.18s ease !important;
+      box-sizing: border-box !important;
+    }
+
+    .c-header_mobile_menu_link_label,
+    .c-header_mobile_menu_sumary_label {
+      display: inline-block !important;
+      flex: 1 1 auto !important;
+      color: #ffffff !important;
+      font-family: inherit !important;
+      font-size: inherit !important;
+      font-weight: inherit !important;
+      letter-spacing: inherit !important;
+      line-height: inherit !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    .c-header_mobile_menu_link::after {
+      content: "↗" !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      color: #ff488b !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      line-height: 1 !important;
+      flex-shrink: 0 !important;
+      margin-left: auto !important;
+      padding-left: 6px !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    .c-header_mobile_menu_link:hover,
+    .c-header_mobile_menu_link:active,
+    .c-header_mobile_menu_link:focus {
+      background: rgba(255, 72, 139, 0.22) !important;
+      border-color: rgba(255, 72, 139, 0.6) !important;
+      color: #ffffff !important;
+      transform: translateX(2px) !important;
+    }
+
+    .c-header_mobile_menu_link:hover .c-header_mobile_menu_link_label,
+    .c-header_mobile_menu_link:active .c-header_mobile_menu_link_label {
+      color: #ffffff !important;
+    }
+
+    .c-header_mobile_menu_link:hover::after,
+    .c-header_mobile_menu_link:active::after {
+      transform: translate(2px, -2px) !important;
+      color: #ff6ea7 !important;
+      text-shadow: 0 0 10px rgba(255, 72, 139, 0.8) !important;
+    }
+
+    .c-header_mobile_menu_link.is-current-page {
+      background: rgba(255, 72, 139, 0.16) !important;
+      border-color: rgba(255, 72, 139, 0.65) !important;
+      border-left: 3.5px solid #ff2d78 !important;
+      color: #ff488b !important;
+    }
+
+    .c-header_mobile_menu_link.is-current-page .c-header_mobile_menu_link_label {
+      color: #ff488b !important;
+      font-weight: 700 !important;
+    }
+
+    .c-header_mobile_menu_buttons {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 7px !important;
+      margin-top: 8px !important;
+      padding-top: 8px !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      transform: none !important;
+      width: 100% !important;
+      position: relative !important;
+      z-index: 2 !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .c-header_mobile_menu_buttons > div,
+    .c-header_mobile_menu_buttons .col-span-2 {
+      width: 100% !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .c-header_mobile_menu_buttons .button,
+    .c-header_mobile_menu_buttons a.button {
+      width: 100% !important;
+      min-height: 38px !important;
+      height: 38px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-family: 'JetBrains Mono', monospace, sans-serif !important;
+      font-size: 11px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.03em !important;
+      text-transform: uppercase !important;
+      border-radius: 8px !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      box-sizing: border-box !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .c-header_mobile_menu_buttons a[href="/"],
+    .c-header_mobile_menu_buttons a.bg-pink-500,
+    .c-header_mobile_menu_buttons .button.bg-pink-500 {
+      background: linear-gradient(135deg, #ff2d78 0%, #ff488b 100%) !important;
+      color: #ffffff !important;
+      border: none !important;
+      box-shadow: 0 4px 14px rgba(255, 45, 120, 0.45) !important;
+    }
+
+    .c-header_mobile_menu_buttons a[href="/"]:hover,
+    .c-header_mobile_menu_buttons a.bg-pink-500:hover {
+      background: linear-gradient(135deg, #e31b67 0%, #ff2d78 100%) !important;
+      box-shadow: 0 6px 18px rgba(255, 45, 120, 0.6) !important;
+    }
+
+    .c-header_mobile_menu_buttons a[onclick*="reopenLoginGate"],
+    .c-header_mobile_menu_buttons a.bg-charcoal\/35,
+    .c-header_mobile_menu_buttons .button.bg-charcoal\/35 {
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 72, 139, 0.4) !important;
+      backdrop-filter: blur(8px) !important;
+    }
+
+    .c-header_mobile_menu_buttons a[onclick*="reopenLoginGate"]:hover {
+      background: rgba(255, 72, 139, 0.2) !important;
+      border-color: #ff2d78 !important;
+    }
+
+    .c-header_mobile_menu_buttons c-scramble-text {
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      font-family: inherit !important;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
 
     .c-header_mobile_menu_toggle,
@@ -10773,112 +11054,6 @@
         gap: 3.5px !important;
         border-radius: 6px !important;
         line-height: 1 !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu,
-      .c-header_mobile_menu {
-        top: 48px !important;
-        height: calc(100vh - 48px) !important;
-        height: calc(100dvh - 48px) !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_inner,
-      .c-header_mobile_menu_inner {
-        margin: 8px 10px 0px !important;
-        max-height: calc(100% - 16px) !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_scroll,
-      .c-header_mobile_menu_scroll {
-        padding: 12px 14px 14px !important;
-        gap: 0px !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_list,
-      .c-header_mobile_menu_list {
-        gap: 2.5px !important;
-        margin-bottom: 0px !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_link,
-      .c-header_mobile_menu_link {
-        min-height: 33px !important;
-        padding: 5px 10px !important;
-        font-size: 13.5px !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
-        border-radius: 6px !important;
-        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_link:hover,
-      html body c-header header.c-header .c-header_mobile_menu_link:active,
-      .c-header_mobile_menu_link:hover,
-      .c-header_mobile_menu_link:active {
-        background: rgba(255, 72, 139, 0.12) !important;
-        color: #ffffff !important;
-      }
-
-      .c-header_mobile_menu_link_label {
-        display: inline-block !important;
-        flex: 1 1 auto !important;
-        padding-right: 8px !important;
-        line-height: 1.25 !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_link::after,
-      .c-header_mobile_menu_link::after {
-        content: "↗" !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        color: rgba(255, 255, 255, 0.35) !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-        font-size: 14px !important;
-        font-weight: 400 !important;
-        line-height: 1 !important;
-        flex-shrink: 0 !important;
-        margin-left: auto !important;
-        padding-left: 6px !important;
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        width: auto !important;
-        height: auto !important;
-        min-width: unset !important;
-        min-height: unset !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_link:hover::after,
-      html body c-header header.c-header .c-header_mobile_menu_link:active::after,
-      .c-header_mobile_menu_link:hover::after,
-      .c-header_mobile_menu_link:active::after {
-        color: #ff488b !important;
-        transform: translate(3px, -3px) !important;
-        text-shadow: 0 0 10px rgba(255, 72, 139, 0.7) !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_buttons,
-      .c-header_mobile_menu_buttons {
-        transform: none !important;
-        margin-top: 8px !important;
-        gap: 6px !important;
-      }
-
-      html body c-header header.c-header .c-header_mobile_menu_buttons .button,
-      html body header.c-header .c-header_mobile_menu_buttons a.button,
-      .c-header_mobile_menu_buttons .button,
-      .c-header_mobile_menu_buttons a.button {
-        height: 35px !important;
-        min-height: 35px !important;
-        font-size: 10px !important;
-        border-radius: 6px !important;
       }
     }
   </style>
