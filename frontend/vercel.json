@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://metri-report-backend.onrender.com/api/v1/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://metri-report-backend.onrender.com/api/v1/:path*"
+    },
+    {
+      "source": "/docs",
+      "destination": "https://metri-report-backend.onrender.com/docs"
+    },
+    {
+      "source": "/openapi.json",
+      "destination": "https://metri-report-backend.onrender.com/openapi.json"
+    },
+    {
+      "source": "/instruments",
+      "destination": "/instrument-registry/index.html"
+    },
+    {
+      "source": "/instrument-registry",
+      "destination": "/instrument-registry/index.html"
+    },
+    {
+      "source": "/evaluation-workspace",
+      "destination": "/evaluation-workspace/index.html"
+    },
+    {
+      "source": "/oiml-rule-engine",
+      "destination": "/OIML-Rule-Engine/index.html"
+    },
+    {
+      "source": "/report-archive",
+      "destination": "/report-archive/index.html"
+    },
+    {
+      "source": "/evidence-vault",
+      "destination": "/evidence-&-vault/index.html"
+    },
+    {
+      "source": "/audit-trail",
+      "destination": "/audit-trail-log/index.html"
+    },
+    {
+      "source": "/user-privileges",
+      "destination": "/user-privileges-&-rbac/index.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms-of-service/index.html"
+    }
+  ]
+}
