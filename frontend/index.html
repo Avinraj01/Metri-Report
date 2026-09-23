@@ -10621,6 +10621,15 @@
       z-index: 999998 !important;
     }
 
+    .c-header_mobile_menu_toggle,
+    .button.c-header_mobile_menu_toggle {
+      order: 1 !important;
+    }
+
+    .c-header_nav_buttons .button.bg-pink-500 {
+      order: 2 !important;
+    }
+
     .c-header_user_profile_wrap {
       display: inline-flex !important;
       order: 3 !important;
@@ -10630,21 +10639,49 @@
 
       .c-header.is-fixed .c-header_container,
       header.c-header.is-fixed .c-header_container {
-        padding: 0 8px !important;
+        padding: 0 6px !important;
         min-height: 50px !important;
         height: 50px !important;
+        gap: 3px !important;
+      }
+
+      .c-header_mobile_menu_toggle,
+      .button.c-header_mobile_menu_toggle {
+        order: 1 !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 0 6px !important;
+        font-size: 9.5px !important;
         gap: 4px !important;
+      }
+
+      .c-header_mobile_menu_toggle .w-5 {
+        width: 14px !important;
+        height: 14px !important;
+      }
+
+      .c-header_mobile_menu_toggle svg {
+        width: 11px !important;
+        height: 11px !important;
+      }
+
+      .c-header_nav_buttons .button.bg-pink-500 {
+        order: 2 !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 0 6px !important;
+        font-size: 9px !important;
       }
 
       .c-header_user_profile_wrap {
         order: 3 !important;
-        margin-left: 4px !important;
+        margin-left: 3px !important;
       }
 
       .c-header_user_avatar_btn {
-        width: 30px !important;
-        height: 30px !important;
-        min-width: 30px !important;
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
       }
 
       .c-header_user_avatar_btn span {

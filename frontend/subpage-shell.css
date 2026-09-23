@@ -818,79 +818,121 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     }
   }
 
-  /* Mobile Menu Toggle Button (order: 1 on mobile navbar) */
-  @media (max-width: 999px) {
-    .c-header_mobile_menu_toggle,
-    .button.c-header_mobile_menu_toggle,
-    c-header header.c-header .c-header_mobile_menu_toggle {
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      background: rgba(16, 20, 33, 0.45) !important;
-      backdrop-filter: blur(16px) !important;
-      -webkit-backdrop-filter: blur(16px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      border-radius: 7px !important;
-      color: #ffffff !important;
-      font-family: var(--font-mono, "JetBrains Mono", monospace) !important;
-      font-size: 11px !important;
-      font-weight: 600 !important;
-      height: 32px !important;
-      min-height: 32px !important;
-      padding: 0 8px !important;
-      gap: 5px !important;
-      cursor: pointer !important;
-      z-index: 99999 !important;
-      order: 1 !important;
-      flex-shrink: 0 !important;
-    }
+  /* Mobile Menu Toggle Button (Visible on mobile, order: 1) */
+  .c-header_mobile_menu_toggle,
+  .button.c-header_mobile_menu_toggle,
+  c-header header.c-header .c-header_mobile_menu_toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(16, 20, 33, 0.45) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 7px !important;
+    color: #ffffff !important;
+    font-family: var(--font-mono, "JetBrains Mono", monospace) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    letter-spacing: normal !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 10px !important;
+    gap: 6px !important;
+    cursor: pointer !important;
+    z-index: 9999999 !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+    order: 1 !important;
   }
 
-  @media (min-width: 1000px) {
-    .c-header_mobile_menu_toggle,
-    .button.c-header_mobile_menu_toggle,
-    c-header header.c-header .c-header_mobile_menu_toggle {
-      display: none !important;
-    }
-  }
-
-  /* User Profile avatar icon button on far right */
+  /* User Profile avatar icon button on far right (order: 3) */
   .c-header_user_profile_wrap {
     order: 3 !important;
     display: inline-flex !important;
     align-items: center !important;
   }
 
-  /* Responsive styling for User Profile Avatar & Navbar on mobile (320px - 768px) */
+  /* Responsive styling for Navbar on mobile (320px - 768px) */
   @media (max-width: 768px) {
-    .c-header_user_profile_wrap {
-      margin-left: 6px !important;
-      order: 3 !important;
-    }
-
-    .c-header_user_avatar_btn {
-      width: 34px !important;
+    .c-header_mobile_menu_toggle {
+      order: 1 !important;
       height: 34px !important;
-      min-width: 34px !important;
-      box-shadow: 0 0 10px rgba(255, 45, 120, 0.35) !important;
+      min-height: 34px !important;
+      padding: 0 8px !important;
+      font-size: 10.5px !important;
     }
 
-    .c-header_user_avatar_btn span {
-      width: 9px !important;
-      height: 9px !important;
+    .c-header .c-header_nav_buttons .c-header_back_btn,
+    header.c-header .c-header_nav_buttons .c-header_back_btn,
+    c-header header.c-header .c-header_nav_buttons .c-header_back_btn {
+      order: 2 !important;
+      height: 34px !important;
+      min-height: 34px !important;
+      padding: 0 8px !important;
+      font-size: 10px !important;
     }
-  }
 
-  @media (max-width: 480px) {
     .c-header_user_profile_wrap {
       margin-left: 4px !important;
       order: 3 !important;
     }
 
     .c-header_user_avatar_btn {
-      width: 30px !important;
+      width: 32px !important;
+      height: 32px !important;
+      min-width: 32px !important;
+      box-shadow: 0 0 10px rgba(255, 45, 120, 0.35) !important;
+    }
+
+    .c-header_user_avatar_btn span {
+      width: 8px !important;
+      height: 8px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .c-header_mobile_menu_toggle,
+    .button.c-header_mobile_menu_toggle,
+    c-header header.c-header .c-header_mobile_menu_toggle {
+      order: 1 !important;
       height: 30px !important;
-      min-width: 30px !important;
+      min-height: 30px !important;
+      padding: 0 6px !important;
+      font-size: 9.5px !important;
+      gap: 4px !important;
+    }
+
+    .c-header_mobile_menu_toggle .w-5 {
+      width: 14px !important;
+      height: 14px !important;
+    }
+
+    .c-header_mobile_menu_toggle svg {
+      width: 11px !important;
+      height: 11px !important;
+    }
+
+    .c-header .c-header_nav_buttons .c-header_back_btn,
+    header.c-header .c-header_nav_buttons .c-header_back_btn,
+    c-header header.c-header .c-header_nav_buttons .c-header_back_btn {
+      order: 2 !important;
+      height: 30px !important;
+      min-height: 30px !important;
+      padding: 0 6px !important;
+      font-size: 9px !important;
+      letter-spacing: 0.01em !important;
+    }
+
+    .c-header_user_profile_wrap {
+      margin-left: 3px !important;
+      order: 3 !important;
+    }
+
+    .c-header_user_avatar_btn {
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
       box-shadow: 0 0 8px rgba(255, 45, 120, 0.35) !important;
     }
 
@@ -909,25 +951,14 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
       padding: 14px !important;
     }
 
-    .c-header .c-header_nav_buttons .c-header_back_btn,
-    header.c-header .c-header_nav_buttons .c-header_back_btn,
-    c-header header.c-header .c-header_nav_buttons .c-header_back_btn {
-      height: 32px !important;
-      min-height: 32px !important;
-      padding: 0 8px !important;
-      font-size: 9.5px !important;
-      letter-spacing: 0.02em !important;
-      order: 2 !important;
-    }
-
     .c-header_container {
       padding-left: 6px !important;
       padding-right: 6px !important;
-      gap: 4px !important;
+      gap: 3px !important;
     }
 
     .c-header_logo_text {
-      font-size: 12.5px !important;
+      font-size: 12px !important;
     }
   }
 
