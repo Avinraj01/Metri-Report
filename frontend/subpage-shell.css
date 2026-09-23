@@ -678,16 +678,30 @@ header.c-header .c-header_nav_buttons .button.bg-pink-500:hover {
     display: inline-flex !important;
   }
 
-  @media (max-width: 1260px) {
-    .c-header_user_badge span:last-child {
-      display: none !important;
+  .c-header_user_profile_wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  .c-header_user_avatar_btn:hover {
+    box-shadow: 0 0 20px rgba(255, 45, 120, 0.7) !important;
+    transform: scale(1.05) !important;
+  }
+
+  @keyframes metriProfileFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
   }
 
-  @media (max-width: 1140px) {
-    .c-header_user_badge {
-      display: none !important;
-    }
+  .c-header_user_dropdown {
+    animation: metriProfileFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .c-header_mobile_menu_toggle,

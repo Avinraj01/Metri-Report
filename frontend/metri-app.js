@@ -160,7 +160,7 @@
     });
   }
 
-  // 7. Inject & Render Active Metrologist Profile Pill across Navigation Headers
+  // 7. Inject & Render Active Metrologist Profile Avatar Icon & Dropdown next to Dashboard button
   function initUserSessionBadge() {
     function renderBadge() {
       let user = {
@@ -179,49 +179,179 @@
         }
       } catch (e) {}
 
-      // Render Desktop Header Pill
+      const nameToShow = user.displayName || (user.name ? user.name.split('(')[0].trim() : 'Avinash Kumar');
+      const desigToShow = user.designation || 'Lead Test Engineer';
+
+      // Render Avatar Icon Button in Navigation Headers
       const navButtons = document.querySelectorAll('.c-header_nav_buttons');
       navButtons.forEach(container => {
-        let existing = container.querySelector('.c-header_user_badge');
-        if (!existing) {
-          existing = document.createElement('div');
-          existing.className = 'c-header_user_badge max-md:hidden';
-          existing.style.cssText = `
-            align-items: center;
-            gap: 8px;
-            background: rgba(16, 24, 39, 0.75);
-            border: 1px solid rgba(56, 189, 248, 0.35);
-            box-shadow: 0 0 16px rgba(56, 189, 248, 0.12);
-            backdrop-filter: blur(16px);
-            padding: 6px 14px;
-            border-radius: 9999px;
-            font-size: 12px;
-            color: #fff;
-            margin-right: 12px;
-            white-space: nowrap;
-            user-select: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          `;
-          existing.title = 'Active Session: ' + (user.name || 'Metrology Officer');
-          existing.onmouseenter = () => { existing.style.borderColor = '#ff488b'; existing.style.boxShadow = '0 0 16px rgba(255, 72, 139, 0.3)'; };
-          existing.onmouseleave = () => { existing.style.borderColor = 'rgba(56, 189, 248, 0.35)'; existing.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.12)'; };
-          existing.addEventListener('click', () => {
-            window.location.href = '/user-privileges-&-rbac';
-          });
-          container.insertBefore(existing, container.firstChild);
-        }
-        const nameToShow = user.displayName || (user.name ? user.name.split('(')[0].trim() : 'Avinash Kumar');
-        const desigToShow = user.designation || 'Lead Test Engineer';
-        existing.innerHTML = `
-          <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; display: inline-block;"></span>
-          <span style="font-weight: 700; color: #38bdf8; font-family: 'Outfit', sans-serif;">${nameToShow}</span>
-          <span style="opacity: 0.8; font-size: 11px; color: #cbd5e1;">(${desigToShow})</span>
-        `;
-      });
+        // Remove old wide badge if present
+        const oldWideBadge = container.querySelector('.c-header_user_badge');
+        if (oldWideBadge) oldWideBadge.remove();
 
-      // Desktop user badge rendered above; mobile drawer badge removed to match localhost:3000 preview
+        let wrap = container.querySelector('.c-header_user_profile_wrap');
+        if (!wrap) {
+          wrap = document.createElement('div');
+          wrap.className = 'c-header_user_profile_wrap';
+          wrap.style.cssText = `
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            margin-left: 8px;
+            z-index: 100;
+          `;
+
+          wrap.innerHTML = `
+            <button class="c-header_user_avatar_btn" type="button" aria-label="User Profile" title="${nameToShow} (${desigToShow})" style="
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              padding: 0;
+              border: 2px solid #ff2d78;
+              background: #ff2d78;
+              cursor: pointer;
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.25s ease;
+              box-shadow: 0 0 14px rgba(255, 45, 120, 0.4);
+              flex-shrink: 0;
+            ">
+              <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; border-radius: 50%; display: block;">
+                <circle cx="50" cy="50" r="50" fill="#ff2d78" />
+                <circle cx="50" cy="38" r="16" fill="#ffffff" />
+                <path d="M 23 84 A 28 28 0 0 1 77 84 Z" fill="#ffffff" />
+              </svg>
+              <span style="
+                position: absolute;
+                bottom: -1px;
+                right: -1px;
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                background: #10b981;
+                border: 2px solid #0d0417;
+                box-shadow: 0 0 6px #10b981;
+                display: block;
+              "></span>
+            </button>
+
+            <!-- Interactive Profile Card Popup -->
+            <div class="c-header_user_dropdown" style="
+              display: none;
+              position: absolute;
+              top: calc(100% + 12px);
+              right: 0;
+              width: 290px;
+              background: rgba(18, 10, 32, 0.97);
+              backdrop-filter: blur(28px);
+              -webkit-backdrop-filter: blur(28px);
+              border: 1px solid rgba(255, 45, 120, 0.4);
+              border-radius: 16px;
+              box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 45, 120, 0.25);
+              padding: 18px;
+              z-index: 99999;
+              text-align: left;
+            ">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; border: 2px solid #ff2d78; overflow: hidden; box-shadow: 0 0 12px rgba(255, 45, 120, 0.5);">
+                  <svg viewBox="0 0 100 100" style="width: 100%; height: 100%; display: block;">
+                    <circle cx="50" cy="50" r="50" fill="#ff2d78" />
+                    <circle cx="50" cy="38" r="16" fill="#ffffff" />
+                    <path d="M 23 84 A 28 28 0 0 1 77 84 Z" fill="#ffffff" />
+                  </svg>
+                </div>
+                <div style="min-width: 0; flex: 1;">
+                  <div class="metri-user-pop-name" style="font-weight: 700; color: #ffffff; font-size: 14.5px; font-family: 'Outfit', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${nameToShow}</div>
+                  <div class="metri-user-pop-desig" style="display: inline-block; background: rgba(255, 45, 120, 0.16); border: 1px solid rgba(255, 45, 120, 0.45); color: #ff659c; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 9999px; margin-top: 4px;">${desigToShow}</div>
+                </div>
+              </div>
+
+              <div style="background: rgba(0,0,0,0.35); border-radius: 10px; padding: 10px 12px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.07); font-size: 12px;">
+                <div style="color: #94a3b8; display: flex; justify-content: space-between; margin-bottom: 5px;">
+                  <span>Email:</span>
+                  <span class="metri-user-pop-email" style="color: #cbd5e1; font-family: monospace; font-size: 11px;">${user.email || 'officer@metrireport.local'}</span>
+                </div>
+                <div style="color: #94a3b8; display: flex; justify-content: space-between;">
+                  <span>Authority:</span>
+                  <span style="color: #10b981; font-weight: 600; font-size: 11px;">● OIML R-76 Verified</span>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <a href="/user-privileges-&-rbac" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); color: #f1f5f9; font-size: 12.5px; text-decoration: none; font-weight: 500; transition: background 0.2s;">
+                  <span style="font-size: 14px;">🛡️</span>
+                  <span>User Privileges &amp; RBAC</span>
+                </a>
+                <button type="button" class="metri-btn-switch-account" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; background: rgba(255, 45, 120, 0.15); border: 1px solid rgba(255, 45, 120, 0.4); color: #ff659c; font-size: 12.5px; font-weight: 600; text-align: left; cursor: pointer; transition: all 0.2s;">
+                  <span style="font-size: 14px;">🔄</span>
+                  <span>Switch Officer / Re-Login</span>
+                </button>
+              </div>
+            </div>
+          `;
+
+          const btn = wrap.querySelector('.c-header_user_avatar_btn');
+          const dropdown = wrap.querySelector('.c-header_user_dropdown');
+          const switchBtn = wrap.querySelector('.metri-btn-switch-account');
+
+          btn.addEventListener('mouseenter', () => {
+            btn.style.boxShadow = '0 0 20px rgba(255, 45, 120, 0.7)';
+            btn.style.transform = 'scale(1.05)';
+          });
+          btn.addEventListener('mouseleave', () => {
+            btn.style.boxShadow = '0 0 14px rgba(255, 45, 120, 0.4)';
+            btn.style.transform = 'scale(1)';
+          });
+
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = dropdown.style.display === 'block';
+            document.querySelectorAll('.c-header_user_dropdown').forEach(d => d.style.display = 'none');
+            dropdown.style.display = isOpen ? 'none' : 'block';
+          });
+
+          if (switchBtn) {
+            switchBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              dropdown.style.display = 'none';
+              if (window.reopenLoginGate) {
+                window.reopenLoginGate();
+              } else {
+                localStorage.removeItem('token');
+                localStorage.removeItem('metri_token');
+                window.location.reload();
+              }
+            });
+          }
+
+          container.appendChild(wrap);
+        } else {
+          const btn = wrap.querySelector('.c-header_user_avatar_btn');
+          if (btn) btn.title = `${nameToShow} (${desigToShow})`;
+          const nameEl = wrap.querySelector('.metri-user-pop-name');
+          if (nameEl) nameEl.textContent = nameToShow;
+          const desigEl = wrap.querySelector('.metri-user-pop-desig');
+          if (desigEl) desigEl.textContent = desigToShow;
+          const emailEl = wrap.querySelector('.metri-user-pop-email');
+          if (emailEl) emailEl.textContent = user.email || 'officer@metrireport.local';
+        }
+      });
     }
+
+    // Global listener to close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.c-header_user_profile_wrap')) {
+        document.querySelectorAll('.c-header_user_dropdown').forEach(d => d.style.display = 'none');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.c-header_user_dropdown').forEach(d => d.style.display = 'none');
+      }
+    });
 
     renderBadge();
     window.addEventListener('metri_user_changed', renderBadge);
