@@ -7,7 +7,7 @@
     },
     {
       "source": "/api/:path*",
-      "destination": "https://metri-report-backend.onrender.com/api/v1/:path*"
+      "destination": "https://metri-report-backend.onrender.com/api/:path*"
     },
     {
       "source": "/docs",

@@ -37,11 +37,11 @@ app = FastAPI(
     redoc_url="/redoc"
 )
 
-# CORS Middleware
+# CORS Middleware - Allow Vercel frontend, local dev, and all valid origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -76,18 +76,19 @@ async def generic_exception_handler(request: Request, exc: Exception):
         }
     )
 
-# Include Routers
-app.include_router(auth_router, prefix=settings.API_V1_STR)
-app.include_router(instruments_router, prefix=settings.API_V1_STR)
-app.include_router(catalog_router, prefix=settings.API_V1_STR)
-app.include_router(sessions_router, prefix=settings.API_V1_STR)
-app.include_router(calculations_router, prefix=settings.API_V1_STR)
-app.include_router(evidence_router, prefix=settings.API_V1_STR)
-app.include_router(reports_router, prefix=settings.API_V1_STR)
-app.include_router(standards_router, prefix=settings.API_V1_STR)
-app.include_router(users_router, prefix=settings.API_V1_STR)
-app.include_router(audit_router, prefix=settings.API_V1_STR)
-app.include_router(dashboard_router, prefix=settings.API_V1_STR)
+# Include Routers on both /api and /api/v1 prefixes for robust compatibility
+for prefix in ["/api", "/api/v1"]:
+    app.include_router(auth_router, prefix=prefix)
+    app.include_router(instruments_router, prefix=prefix)
+    app.include_router(catalog_router, prefix=prefix)
+    app.include_router(sessions_router, prefix=prefix)
+    app.include_router(calculations_router, prefix=prefix)
+    app.include_router(evidence_router, prefix=prefix)
+    app.include_router(reports_router, prefix=prefix)
+    app.include_router(standards_router, prefix=prefix)
+    app.include_router(users_router, prefix=prefix)
+    app.include_router(audit_router, prefix=prefix)
+    app.include_router(dashboard_router, prefix=prefix)
 
 @app.get("/", tags=["Health"])
 @app.get("/health", tags=["Health"])

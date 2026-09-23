@@ -1645,27 +1645,117 @@
       let instList = [];
       let activeSessionId = null;
 
+      const FALLBACK_INSTRUMENTS = [
+        {
+          id: '53855b87-cbab-41c0-95fb-57bd846a32db',
+          instrument_name: 'Demo Electronic Platform Scale (MW-3000)',
+          model: 'MW-3000',
+          serial_number: 'MW3000-2026-IND-001',
+          accuracy_class: 'III',
+          max_capacity: 3000.0,
+          min_capacity: 20.0,
+          e_value: 1.0,
+          d_value: 1.0,
+          unit: 'kg',
+          load_receptor_type: 'Platform',
+          num_support_points: 4,
+          manufacturer: 'Demo WeighTech Pvt. Ltd.'
+        },
+        {
+          id: 'a97b565c-1fee-4df7-8dda-da2eb617c35c',
+          instrument_name: 'Precision Laboratory Balance (PB-600)',
+          model: 'PB-600',
+          serial_number: 'PB600-2026-IND-082',
+          accuracy_class: 'II',
+          max_capacity: 600.0,
+          min_capacity: 0.5,
+          e_value: 0.01,
+          d_value: 0.001,
+          unit: 'g',
+          load_receptor_type: 'Stainless Pan',
+          num_support_points: 1,
+          manufacturer: 'Precision Balances India Ltd.'
+        },
+        {
+          id: 'a02efb40-82a5-4194-a639-513419974de8',
+          instrument_name: 'Analytical Micro-Balance (AB-220)',
+          model: 'AB-220',
+          serial_number: 'AB220-2026-IND-019',
+          accuracy_class: 'I',
+          max_capacity: 220.0,
+          min_capacity: 0.01,
+          e_value: 0.001,
+          d_value: 0.0001,
+          unit: 'g',
+          load_receptor_type: 'Draft-Shielded Pan',
+          num_support_points: 1,
+          manufacturer: 'Apex Analytical Instruments'
+        },
+        {
+          id: '2354e707-6310-4470-b7c3-173263a15feb',
+          instrument_name: 'Heavy Road Weighbridge (WB-50K)',
+          model: 'WB-50K',
+          serial_number: 'WB50K-2026-IND-004',
+          accuracy_class: 'III',
+          max_capacity: 50000.0,
+          min_capacity: 400.0,
+          e_value: 10.0,
+          d_value: 10.0,
+          unit: 'kg',
+          load_receptor_type: 'Steel Deck',
+          num_support_points: 6,
+          manufacturer: 'Bharat Weighbridge Systems Ltd.'
+        },
+        {
+          id: '8356ead5-d239-453f-bca9-1ce6f98705df',
+          instrument_name: 'Commercial Counter Scale (CS-30)',
+          model: 'CS-30',
+          serial_number: 'CS30-2026-IND-105',
+          accuracy_class: 'III',
+          max_capacity: 30.0,
+          min_capacity: 0.1,
+          e_value: 0.005,
+          d_value: 0.005,
+          unit: 'kg',
+          load_receptor_type: 'Platform',
+          num_support_points: 4,
+          manufacturer: 'Retail Scales Co.'
+        }
+      ];
+
+      function populateDropdown(list) {
+        const sel = document.getElementById('ws-sel-inst');
+        if (!sel) return;
+        sel.innerHTML = '<option value="">-- Select Instrument --</option>' + list.map(i => `
+          <option value="${i.id}">${i.instrument_name} (${i.model}) &mdash; Class ${i.accuracy_class}</option>
+        `).join('');
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const pId = urlParams.get('instrumentId');
+        if (pId && list.some(i => i.id === pId)) {
+          sel.value = pId;
+          renderInstCard(pId);
+        } else if (list.length > 0) {
+          sel.value = list[0].id;
+          renderInstCard(list[0].id);
+        }
+      }
+
       async function init() {
+        const sel = document.getElementById('ws-sel-inst');
+        // Instantly populate with default seed list to eliminate any loading wait
+        instList = FALLBACK_INSTRUMENTS;
+        populateDropdown(instList);
+        if (sel) sel.addEventListener('change', () => renderInstCard(sel.value));
+
         try {
-          instList = await MetriEngine.api.getInstruments();
-          const sel = document.getElementById('ws-sel-inst');
-          sel.innerHTML = '<option value="">-- Select Instrument --</option>' + instList.map(i => `
-            <option value="${i.id}">${i.instrument_name} (${i.model}) &mdash; Class ${i.accuracy_class}</option>
-          `).join('');
-
-          const urlParams = new URLSearchParams(window.location.search);
-          const pId = urlParams.get('instrumentId');
-          if (pId) {
-            sel.value = pId;
-            renderInstCard(pId);
-          } else if (instList.length > 0) {
-            sel.value = instList[0].id;
-            renderInstCard(instList[0].id);
+          const liveList = await MetriEngine.api.getInstruments();
+          if (Array.isArray(liveList) && liveList.length > 0) {
+            instList = liveList;
+            populateDropdown(instList);
           }
-
-          sel.addEventListener('change', () => renderInstCard(sel.value));
         } catch (e) {
-          console.warn('Error initializing workspace instruments:', e);
+          console.info('Using preloaded statutory instruments:', e.message || e);
         }
       }
 
