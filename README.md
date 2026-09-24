@@ -195,5 +195,26 @@ docker compose up --build
 
 ---
 
-## 10. Legal Metrology Disclaimer
+## 10. Recent Mobile S (320px) & Responsive UI/UX Enhancements
+
+A comprehensive responsive overhaul has been implemented for ultra-compact mobile viewports (e.g., **Mobile S - 320px screen width**) across all subpages and the main landing page:
+
+1. **Compact Mobile Navbar & Branding**:
+   - **Enlarged Scale Logo Icon**: Scaled to `23px × 23px` for crisp legibility on small screens.
+   - **Ultra-Bold "Metri-Report" Typography**: Styled with `font-weight: 900` at `14.5px` with tight kerning (`-0.015em`) for strong brand recognition.
+   - **Enlarged User Profile Avatar Icon**: Scaled to `32px × 32px` circle with glowing pink accent border (`#ff2d78`) and live online status indicator dot.
+   - **Balanced 50px Navbar Height**: Vertical alignment (`display: flex; align-items: center; justify-content: space-between`) prevents horizontal overflow and crowding on 320px screens.
+
+2. **Mobile Menu Drawer / Preview Box Redesign**:
+   - **Snug Content-Fit Box**: The glowing pink outline modal (`border: 1.5px solid rgba(255, 72, 139, 0.45)`) wraps strictly around the 7 navigation links and action buttons (`height: auto !important; max-height: calc(100dvh - 60px)`).
+   - **Clean Button Ending**: The modal container ends cleanly immediately after the **LOGOUT** button with a balanced 10px margin, eliminating unnecessary empty vertical gaps.
+   - **Direct Single-Tap Navigation**: Instant access to all statutory modules (*Instrument Registry, Evaluation Workspace, Report Archive, Evidence & Vault, User Privileges & RBAC, Audit Trail Log, OIML Rule Engine*), `BACK TO DASHBOARD`, and `LOGOUT`.
+
+3. **Authentic Slate Theme for Metrology Publications Section**:
+   - Maintained the authentic light slate palette (`#f8fafc` background, `#ffffff` cards, `#e2e8f0` borders) on mobile viewports.
+   - Images and icons render with `100% opacity` and responsive vertical card stacking, preventing blank white areas or conflicting dark overlays.
+
+---
+
+## 11. Legal Metrology Disclaimer
 > **IMPORTANT NOTICE:** METRIREPORT is a prototype system developed for SIH 2026. It generates compliance evaluation test reports strictly based on configured OIML R-76 requirements and does not falsely claim statutory Legal Metrology Model Approval certification under Section 22 of the Legal Metrology Act, 2009 without gazette notification.
