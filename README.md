@@ -1,220 +1,1291 @@
-# METRI-REPORT
-## Smart OIML R-76 Statutory Testing & Legal Metrology Automation Platform
 
-**SIH 2026 Prototype**  
-**Organization:** Department of Consumer Affairs, Ministry of Consumer Affairs, Food & Public Distribution, Government of India.  
-**Problem Statement:** *"Development of a Software Program/Application for Generation of Test Reports for Non-Automatic Weighing Instruments (NAWI) as per OIML Recommendation R-76"*
+<div align="center">
 
----
+<!-- ========================================================= -->
+<!--                         HERO                              -->
+<!-- ========================================================= -->
 
-## 1. System Overview & Architecture
+<br>
 
-**METRI-REPORT** is a full-stack, enterprise-grade digital compliance and test reporting system built to automate the type evaluation, verification workflow, and statutory report generation for Non-Automatic Weighing Instruments (NAWI) strictly adhering to **OIML Recommendation R 76-1 Edition 2006 (E)** and the **Legal Metrology (General) Rules, 2011**.
+<h1>
+  𓍝 <strong>Metri-Report</strong>
+</h1>
 
-```
-                            ┌──────────────────────────────────────────────┐
-                            │          METRI-REPORT 3D WEBGL UI            │
-                            │   Three.js + GLTF Mesh + Vanilla JS Modules  │
-                            │   ABC Favorit + Outfit Design System         │
-                            │   Port: 3000 (Node Gateway / Reverse Proxy)  │
-                            └──────────────────────┬───────────────────────┘
-                                                   │ (REST API / Reverse Proxy)
-                                                   ▼
-                            ┌──────────────────────────────────────────────┐
-                            │             FastAPI Backend Layer            │
-                            │  CORS + Pydantic v2 + Dependency Injection   │
-                            │  Port: 8000 (Uvicorn Async Worker)           │
-                            └──────────────────────┬───────────────────────┘
-                                                   │
-     ┌──────────────────┬──────────────────────────┼──────────────────────────┬──────────────────┐
-     ▼                  ▼                          ▼                          ▼                  ▼
-┌──────────┐    ┌───────────────┐         ┌─────────────────┐        ┌───────────────┐    ┌───────────┐
-│ Auth &   │    │ Validation    │         │ OIML Versioned  │        │  Calculation  │    │ Report    │
-│ RBAC     │    │ & Applicabil. │         │ Rule Engine     │        │  & MPE Engine │    │ Engine    │
-│ (JWT)    │    │ (Pydantic/Zod)│         │ (JSON/DB Rules) │        │  (OIML R-76)  │    │ PDF/DOCX  │
-└────┬─────┘    └───────┬───────┘         └────────┬────────┘        └───────┬───────┘    └─────┬─────┘
-     │                  │                          │                          │                  │
-     └──────────────────┴──────────────────────────┼──────────────────────────┴──────────────────┘
-                                                   ▼
-                            ┌──────────────────────────────────────────────┐
-                            │       SQLAlchemy 2.0 ORM + SQLite / Postgres │
-                            │  Immutable Cryptographic Audit Trails        │
-                            └──────────────────────┬───────────────────────┘
-                                                   │
-                                                   ▼
-                            ┌──────────────────────────────────────────────┐
-                            │ File Storage (Evidence, Photos, PDF, DOCX)   │
-                            │ Local FS / S3 Abstraction + SHA-256 Hashing  │
-                            └──────────────────────────────────────────────┘
-```
+<p>
+  <strong>Smart OIML R-76 Statutory Testing & Legal Metrology Automation Platform</strong>
+</p>
 
----
 
-## 2. Project Directory Structure
+<img
+  src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=21&duration=2600&pause=750&color=E11D48&center=true&vCenter=true&width=950&height=55&lines=⚖️+OIML+R-76+Compliance+Automation;⚙️+NAWI+Statutory+Testing;📊+Automated+Metrology+Reports;🔐+Cryptographic+Evidence+Integrity;🧾+PDF+%2B+DOCX+Report+Generation;🇮🇳+Smart+India+Hackathon+2026"
+  alt="Metri-Report animated tagline"
+/>
+<a href="https://metri-report.vercel.app/">
+<img
+  src="https://img.shields.io/badge/🚀_LIVE_PROTOTYPE-Metri--Report-E11D48?style=for-the-badge&labelColor=111827"
+  alt="Live Prototype"
+/>
+</a>
+&nbsp;&nbsp;
+<a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing">
+<img
+  src="https://img.shields.io/badge/📑_PROJECT_PPT-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white"
+  alt="Project Presentation"
+/>
+</a>
 
-```
-MetriReport/
-├── backend/                        # FastAPI REST API Backend
-│   ├── app/
-│   │   ├── api/                    # Versioned REST Routers (v1)
-│   │   ├── calculations/           # Metrological Turning Point & MPE Formulae
-│   │   ├── compliance/             # OIML R-76 Statutory Rule Enforcers
-│   │   ├── core/                   # Security, JWT, Database & Config
-│   │   ├── models/                 # SQLAlchemy 2.0 Database Models
-│   │   ├── reports/                # PDF & DOCX Certificate Generators
-│   │   ├── schemas/                # Pydantic v2 Request/Response Models
-│   │   ├── services/               # Cryptographic Hashing & Business Logic
-│   │   └── tests/                  # 32+ Unit, Integration & Math Test Suite
-│   └── requirements.txt            # Python Dependencies
-│
-├── frontend/                       # Production 3D WebGL Frontend & Subpages
-│   ├── index.html                  # Interactive 3D Homepage with Kinetic Typography
-│   ├── evaluation-workspace/       # 7-Step Statutory Evaluation Wizard & 3D Twin
-│   ├── instrument-registry/        # NAWI Instrument Registration & Registry Table
-│   ├── report-archive/             # Statutory Certificate Archive & Verification
-│   ├── evidence-&-vault/           # Tamper-Proof Cryptographic Evidence Vault
-│   ├── user-privileges-&-rbac/     # Officer Roles, Privileges & RBAC Manager
-│   ├── audit-trail-log/            # Immutability Audit Logs & Event Timeline
-│   ├── OIML-Rule-Engine/           # OIML R-76 Rule Inspector & Tolerance Curve
-│   ├── server.js                   # Node.js Static Server & Reverse Proxy (Port 3000)
-│   ├── subpage-shell.css           # Unified Statutory Subpage Styling & Theme
-│   ├── fonts/                      # High-Fidelity ABC Favorit & Suisse Int'l Fonts
-│   └── assets/                     # 3D Models, Emblems, Logos, and Video Posters
-│
-├── docs/                           # Architecture Blueprints & Compliance Matrices
-└── README.md                       # Comprehensive System Documentation
-```
+&nbsp;&nbsp;
+<a href="https://youtu.be/aikTO0FT_2c?si=wGvtQ1_y6iuLtcUi">
+<img
+  src="https://img.shields.io/badge/▶_SHORT_EXPLANATION-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"
+  alt="Short Explanation"
+/>
+</a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" />
+<img src="https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=three.js&logoColor=white" />
+<img src="https://img.shields.io/badge/SQLAlchemy-2.0-CC0000?style=flat-square" />
+<img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+<img src="https://img.shields.io/badge/OIML-R--76-7C3AED?style=flat-square" />
+<img src="https://img.shields.io/badge/SHA--256-Cryptographic-111827?style=flat-square" />
+
+<br><br>
+
+> **Measure • Validate • Verify • Report**
+
+<br>
+
+<img
+  src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=3&section=header"
+  width="72%"
+/>
+
+<br><br>
+
+<sub>
+<strong>SIH 2026 Prototype</strong> · Legal Metrology · Non-Automatic Weighing Instruments · OIML R-76
+</sub>
+
+</div>
 
 ---
 
-## 3. Statutory Metrology Modules & Live Endpoints
+# ⚖️ What is Metri-Report?
 
-| Module | URL Path | Description |
-|---|---|---|
-| **Homepage** | [`http://localhost:3000/`](http://localhost:3000/) | 3D WebGL hero ribbon, kinetic word animation (*Measure, Validate, Report*), interactive video hold demo, and module directory. |
-| **Evaluation Workspace** | [`http://localhost:3000/evaluation-workspace`](http://localhost:3000/evaluation-workspace) | 7-Step statutory test wizard with 3D digital scale twin, 5-point eccentricity map, turning point observations, MPE error envelope calculations, and 1-click official PDF/DOCX generation. |
-| **Instrument Registry** | [`http://localhost:3000/instrument-registry`](http://localhost:3000/instrument-registry) | NAWI instrument database with OIML Accuracy Classes (Class I, II, III, IIII), verification scale interval ($e$), multi-interval / multi-range specifications. |
-| **Report Archive** | [`http://localhost:3000/report-archive`](http://localhost:3000/report-archive) | Tamper-proof certificate archive with cryptographic SHA-256 validation, versioning, status badges (Approved, Draft, Finalized), and instant report viewer. |
-| **Evidence & Vault** | [`http://localhost:3000/evidence-&-vault`](http://localhost:3000/evidence-&-vault) | Cryptographic evidence repository for calibration weight certificates (OIML E2/F1), raw testing logs, device photos, and cryptographic hash verification. |
-| **User Privileges & RBAC** | [`http://localhost:3000/user-privileges-&-rbac`](http://localhost:3000/user-privileges-&-rbac) | Role-Based Access Control manager for Legal Metrology Officers, Lab Managers, Reviewers, and Test Engineers with dynamic permission toggles. |
-| **Audit Trail Log** | [`http://localhost:3000/audit-trail-log`](http://localhost:3000/audit-trail-log) | Immutable cryptographic event log capturing test modifications, officer IP addresses, timestamps, and JSON event payload inspection. |
-| **OIML Rule Engine** | [`http://localhost:3000/OIML-Rule-Engine`](http://localhost:3000/OIML-Rule-Engine) | Interactive statutory rule inspector, tolerance curve viewer, and clause lookup across Clauses 2, 3, A.4, A.5, A.6, Annex B, and Annex G. |
-| **Swagger API Docs** | [`http://localhost:3000/docs`](http://localhost:3000/docs) | Interactive OpenAPI / Swagger UI reverse-proxied through the gateway. |
+**Metri-Report** is a full-stack statutory testing and reporting platform designed for **Non-Automatic Weighing Instruments (NAWI)**.
+
+The platform digitizes the workflow from:
+
+**Instrument Registration → Test Configuration → Observation Entry → OIML Calculation → Compliance Evaluation → Evidence Sealing → Review → PDF/DOCX Report → Finalization**
+
+The system is designed around **OIML Recommendation R 76-1:2006 (E)** and the **Legal Metrology (General) Rules, 2011**.
+
+It brings statutory testing, metrological calculations, evidence management, role-based workflows and report generation into one unified platform.
 
 ---
 
-## 4. Source-of-Truth Regulatory Policy
+# 🏛️ Smart India Hackathon 2026
 
-- **Primary Technical Source**: **OIML R 76-1:2006 (E)** *"Non-automatic weighing instruments - Part 1: Metrological and technical requirements - Tests"*.
-- **Authoritative Rules**: Every compliance calculation, permissible error limit, and changeover evaluation is derived from verified clauses (Clauses 2, 3, A.4, A.5, A.6, Annex B, Annex G).
-- **Turning Point Formula**: Changeover points calculated using $P = I + 0.5d - \Delta L$ with exact error determination $E = P - L$ and corrected error $E_c = E - E_0$.
-- **No Silent Guessing**: Ambiguous or unconfigured requirements are explicitly surfaced with `"MANUAL REVIEW REQUIRED"` / `"NOT CONFIGURED"` statuses.
-- **Explainability**: Every result displays its observed values, permissible limits ($MPE$), margin, formula, and exact OIML clause reference.
+<div align="center">
+
+### 🇮🇳 Legal Metrology Automation · Metri-Report
+
+<br>
+
+<img src="https://img.shields.io/badge/SIH_2026-Prototype-111827?style=for-the-badge&labelColor=E11D48" />
+<img src="https://img.shields.io/badge/Domain-Legal_Metrology-111827?style=for-the-badge&labelColor=7C3AED" />
+<img src="https://img.shields.io/badge/Category-Software-111827?style=for-the-badge&labelColor=2563EB" />
+
+<br><br>
+
+</div>
+
+| Field | Details |
+|---|---|
+| **Organization** | Department of Consumer Affairs, Ministry of Consumer Affairs, Food & Public Distribution, Government of India |
+| **Problem Statement** | Development of a Software Program/Application for Generation of Test Reports for Non-Automatic Weighing Instruments (NAWI) as per OIML Recommendation R-76 |
+| **Domain** | Legal Metrology |
+| **Standard** | OIML R 76-1:2006 (E) |
+| **Instrument Type** | Non-Automatic Weighing Instruments (NAWI) |
+| **Project** | Metri-Report |
+| **Status** | SIH 2026 Prototype |
 
 ---
 
-## 5. Demo Credentials & User Roles
+# 📑 Project Presentation
 
-| Email Address | Password | Role | System Permissions |
+<div align="center">
+
+### 🏆 Metri-Report · Smart India Hackathon 2026
+
+<br>
+
+<img src="https://img.shields.io/badge/OIML_R--76-Statutory_Testing-111827?style=flat-square&labelColor=E11D48" />
+<img src="https://img.shields.io/badge/Legal_Metrology-Automation-111827?style=flat-square&labelColor=7C3AED" />
+<img src="https://img.shields.io/badge/NAWI-Test_Reports-111827?style=flat-square&labelColor=2563EB" />
+
+<br><br>
+
+<a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing">
+
+<img
+src="https://drive.google.com/thumbnail?id=1nsga1QCVMlIudqo0IhGJenXJBFIyrymS&sz=w1600"
+alt="Metri-Report Smart India Hackathon 2026 Presentation"
+width="900"
+/>
+
+</a>
+
+<br><br>
+
+<a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing">
+
+<img
+src="https://img.shields.io/badge/📄_OPEN_FULL_PRESENTATION-4285F4?style=for-the-badge&logo=googledrive&logoColor=white"
+alt="Open Full Presentation"
+/>
+
+</a>
+
+<br><br>
+
+<sub>
+Click the presentation preview or the button above to open the complete project presentation.
+</sub>
+
+</div>
+
+---
+
+# 🌐 Live Prototype
+
+<div align="center">
+
+### 🚀 Interactive Metri-Report Platform
+
+<br>
+
+<a href="https://metri-report.vercel.app/">
+
+<img
+src="frontend/assets/METRI-REPORT PREVIEW.png"
+alt="Metri-Report Live Prototype Preview"
+width="900"
+/>
+
+</a>
+
+<br><br>
+
+<a href="https://metri-report.vercel.app/">
+
+<img
+src="https://img.shields.io/badge/🚀_OPEN_METRI--REPORT-E11D48?style=for-the-badge&logo=vercel&logoColor=white"
+alt="Open Metri-Report"
+/>
+
+</a>
+
+<br><br>
+
+<sub>
+Click the preview or button above to open the live Metri-Report prototype.
+</sub>
+
+</div>
+
+---
+
+# 🎥 Project Videos
+
+<div align="center">
+
+### 🎬 Watch Metri-Report in Action
+
+<br>
+
+<table>
+<tr>
+
+<td align="center" width="50%">
+
+### 🎞️ Short Explanation
+
+<a href="https://youtu.be/aikTO0FT_2c?si=wGvtQ1_y6iuLtcUi">
+
+<img
+src="https://img.youtube.com/vi/aikTO0FT_2c/maxresdefault.jpg"
+alt="Metri-Report Short Explanation Video"
+width="420"
+/>
+
+</a>
+
+<br><br>
+
+<a href="https://youtu.be/aikTO0FT_2c?si=wGvtQ1_y6iuLtcUi">
+
+<img
+src="https://img.shields.io/badge/▶_WATCH_EXPLANATION-FF0000?style=for-the-badge&logo=youtube&logoColor=white"
+alt="Watch Short Explanation"
+/>
+
+</a>
+
+<br>
+
+<sub>Quick overview of the problem, solution and platform.</sub>
+
+</td>
+
+<td align="center" width="50%">
+
+### 🖥️ Prototype Demo
+
+<a href="https://youtu.be/I3D6fohmWKI?si=4KK4XNhP0dYcliJN">
+
+<img
+src="https://img.youtube.com/vi/I3D6fohmWKI/maxresdefault.jpg"
+alt="Metri-Report Prototype Demo Video"
+width="420"
+/>
+
+</a>
+
+<br><br>
+
+<a href="https://youtu.be/I3D6fohmWKI?si=4KK4XNhP0dYcliJN">
+
+<img
+src="https://img.shields.io/badge/▶_WATCH_PROTOTYPE_DEMO-FF0000?style=for-the-badge&logo=youtube&logoColor=white"
+alt="Watch Prototype Demo"
+/>
+
+</a>
+
+<br>
+
+<sub>Walkthrough of the working Metri-Report prototype.</sub>
+
+</td>
+
+</tr>
+</table>
+
+</div>
+
+---
+
+# 🧩 The Problem
+
+Traditional statutory weighing-instrument testing involves multiple disconnected activities:
+
+- Manual instrument registration
+- Manual test configuration
+- Physical observation recording
+- Repeated metrological calculations
+- Manual compliance interpretation
+- Evidence handling
+- Review and approval
+- Preparation of statutory reports
+- Maintaining audit history
+
+This creates a workflow where **data, calculations, evidence and reports can become fragmented across different systems or manual records**.
+
+Metri-Report brings these activities into one structured digital workflow.
+
+---
+
+# 🔄 From Manual Testing → Digital Statutory Workflow
+
+<div align="center">
+
+<table>
+<tr>
+
+<td align="center" width="20%">
+
+### 🧾
+
+**REGISTER**
+
+<sub>
+Instrument<br>
+Specifications<br>
+Manufacturer
+</sub>
+
+</td>
+
+<td align="center" width="5%">
+
+### →
+
+</td>
+
+<td align="center" width="20%">
+
+### 🧪
+
+**TEST**
+
+<sub>
+Conditions<br>
+Observations<br>
+Applicable Tests
+</sub>
+
+</td>
+
+<td align="center" width="5%">
+
+### →
+
+</td>
+
+<td align="center" width="20%">
+
+### 🧮
+
+**CALCULATE**
+
+<sub>
+MPE<br>
+Turning Point<br>
+Error Analysis
+</sub>
+
+</td>
+
+<td align="center" width="5%">
+
+### →
+
+</td>
+
+<td align="center" width="20%">
+
+### 📋
+
+**REPORT**
+
+<sub>
+PDF<br>
+DOCX<br>
+Compliance
+</sub>
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+
+<td align="center" width="25%">
+
+### 🔐
+
+**EVIDENCE**
+
+<sub>
+SHA-256<br>
+Photos<br>
+Test Artifacts
+</sub>
+
+</td>
+
+<td align="center" width="25%">
+
+### 👥
+
+**REVIEW**
+
+<sub>
+RBAC<br>
+Approval<br>
+Technical Review
+</sub>
+
+</td>
+
+<td align="center" width="25%">
+
+### 🧾
+
+**AUDIT**
+
+<sub>
+Events<br>
+Timestamps<br>
+Immutable Logs
+</sub>
+
+</td>
+
+<td align="center" width="25%">
+
+### 🔒
+
+**FINALIZE**
+
+<sub>
+Report Lock<br>
+Versioning<br>
+Integrity
+</sub>
+
+</td>
+
+</tr>
+</table>
+
+</div>
+
+---
+
+# 💡 Problem → Solution
+
+| Challenge | Metri-Report Solution |
+|---|---|
+| 📄 Manual report preparation | Automated PDF & DOCX report generation |
+| 🧮 Repetitive calculations | Automated OIML calculation engine |
+| ⚖️ Complex metrological rules | Versioned OIML rule engine |
+| 🔍 Difficult traceability | Clause-level result explainability |
+| 📷 Scattered evidence | Centralized evidence vault |
+| 🔐 Evidence integrity concerns | SHA-256 cryptographic hashing |
+| 👥 Multiple user responsibilities | Role-Based Access Control |
+| 📝 Manual review workflow | Digital review and approval workflow |
+| 🕒 Limited audit visibility | Immutable chronological audit trail |
+| 📚 Changing standards | Versioned statutory rule architecture |
+
+---
+
+# ✨ Core Capabilities
+
+<div align="center">
+
+| ⚖️ METROLOGY | 🧮 CALCULATION | 🔐 INTEGRITY | 📄 REPORTING |
 |---|---|---|---|
-| `admin@metrireport.local` | `admin123` | **ADMIN** | Full administrative control, role assignment, rule toggles, finalization |
-| `manager@metrireport.local` | `manager123` | **LAB_MANAGER** | Create/edit instruments, assign tests, approve workflow, rule inspection |
-| `engineer@metrireport.local` | `engineer123` | **TEST_ENGINEER** | Execute test sessions, enter observations, upload evidence, draft reports |
-| `reviewer@metrireport.local` | `reviewer123` | **REVIEWER** | Review calculations, add technical comments, approve/reject draft reports |
-| `viewer@metrireport.local` | `viewer123` | **VIEWER** | Read-only access to repository, audit trails, and standards |
+| NAWI Testing | MPE Calculation | SHA-256 Hashing | PDF Generation |
+| OIML R-76 Rules | Turning Points | Evidence Vault | DOCX Generation |
+| Accuracy Classes | Error Analysis | Audit Trail | Report Versioning |
+| Verification Workflow | Compliance Logic | Immutable State | Statutory Format |
 
-> **Note**: The login screen includes **1-Click Demo Account Switchers** with expressive interactive feedback and 100% offline fallback.
+</div>
 
 ---
 
-## 6. Getting Started (Local Development)
+# 🏗️ System Architecture
 
-### Prerequisites
-- Python 3.9+
-- Node.js 18+ and npm
+```mermaid
+flowchart TD
 
-### Backend Setup
+    USER["👤 Legal Metrology Officer / Engineer"]
+
+    UI["🖥️ Metri-Report Web Interface<br/>HTML + CSS + JavaScript + Three.js"]
+
+    GATEWAY["⚙️ Node.js Gateway<br/>Port 3000"]
+
+    API["🚀 FastAPI Backend<br/>Port 8000"]
+
+    AUTH["🔐 Authentication & RBAC"]
+
+    VALIDATION["✅ Validation Layer"]
+
+    RULES["📚 OIML R-76<br/>Versioned Rule Engine"]
+
+    CALC["🧮 Metrological<br/>Calculation Engine"]
+
+    REPORT["📄 PDF / DOCX<br/>Report Engine"]
+
+    EVIDENCE["🔒 Evidence Vault<br/>SHA-256"]
+
+    AUDIT["📜 Audit Trail"]
+
+    DB[("🗄️ SQLite / PostgreSQL")]
+
+    STORAGE["📁 File Storage<br/>Evidence + Reports"]
+
+    USER --> UI
+    UI --> GATEWAY
+    GATEWAY --> API
+
+    API --> AUTH
+    API --> VALIDATION
+    API --> RULES
+    API --> CALC
+    API --> REPORT
+    API --> EVIDENCE
+    API --> AUDIT
+
+    AUTH --> DB
+    VALIDATION --> DB
+    RULES --> DB
+    CALC --> DB
+    REPORT --> DB
+    EVIDENCE --> DB
+    AUDIT --> DB
+
+    EVIDENCE --> STORAGE
+    REPORT --> STORAGE
+````
+
+---
+
+# 🔬 OIML R-76 Compliance Engine
+
+Metri-Report is structured around **OIML Recommendation R 76-1:2006 (E)** and associated statutory testing requirements.
+
+### 📐 Turning Point Calculation
+
+The platform implements the changeover turning point calculation:
+
+$$
+P = I + 0.5e - \Delta L
+$$
+
+Where:
+
+* `P` = calculated turning point
+* `I` = indicated value
+* `e` = verification scale interval
+* `ΔL` = additional load
+
+### 📊 Error Calculation
+
+$$
+E = P - L
+$$
+
+Corrected error:
+
+$$
+E_c = E - E_0
+$$
+
+Where:
+
+* `E` = error
+* `L` = applied load
+* `E₀` = zero error
+* `E_c` = corrected error
+
+---
+
+# 📚 Statutory Rule Coverage
+
+The platform organizes statutory requirements into a versioned rule system covering areas including:
+
+* Accuracy classes
+* Verification scale interval
+* Maximum Permissible Error
+* Turning point / changeover calculations
+* Zero error
+* Repeatability
+* Eccentricity
+* Creep
+* Discrimination
+* Tare
+* Influence factors
+* Evidence integrity
+* Report generation
+
+The system is designed so that ambiguous or unconfigured requirements can be surfaced instead of silently producing unsupported results.
+
+> **MANUAL REVIEW REQUIRED** and **NOT CONFIGURED** states are used where applicable.
+
+---
+
+# 🧮 Calculation & Verification Pipeline
+
+```mermaid
+flowchart LR
+
+    A["⚖️ Instrument<br/>Specifications"]
+
+    B["🧪 Test<br/>Observations"]
+
+    C["📚 Applicable<br/>OIML Rules"]
+
+    D["🧮 Calculation<br/>Engine"]
+
+    E["📊 Error + MPE<br/>Evaluation"]
+
+    F{"Compliance<br/>Check"}
+
+    G["🟢 PASS"]
+
+    H["🔴 FAIL"]
+
+    I["🟡 MANUAL REVIEW"]
+
+    A --> D
+    B --> D
+    C --> D
+
+    D --> E
+    E --> F
+
+    F -->|Within Limit| G
+    F -->|Outside Limit| H
+    F -->|Ambiguous / Missing| I
+```
+
+---
+
+# 🧾 Statutory Testing Modules
+
+| Module                        | Purpose                                                   |
+| ----------------------------- | --------------------------------------------------------- |
+| 🏠 **Homepage**               | 3D WebGL interface, navigation and platform overview      |
+| ⚖️ **Instrument Registry**    | Register NAWI instruments and metrological specifications |
+| 🧪 **Evaluation Workspace**   | Execute the statutory evaluation workflow                 |
+| 📊 **Report Archive**         | Store, verify and retrieve generated reports              |
+| 🔐 **Evidence & Vault**       | Store evidence and generate cryptographic hashes          |
+| 👥 **User Privileges & RBAC** | Manage user roles and permissions                         |
+| 📜 **Audit Trail Log**        | Inspect chronological system events                       |
+| 📚 **OIML Rule Engine**       | Inspect and manage statutory rules                        |
+| 📖 **Swagger API Docs**       | Explore backend REST APIs                                 |
+
+---
+
+# 🧪 Evaluation Workspace
+
+The Evaluation Workspace provides a structured statutory testing workflow.
+
+### Typical workflow
+
+```text
+Instrument
+    ↓
+Test Conditions
+    ↓
+Applicable Tests
+    ↓
+Observations
+    ↓
+Calculations
+    ↓
+Compliance
+    ↓
+Evidence
+    ↓
+Review
+    ↓
+Report Generation
+    ↓
+Finalization
+```
+
+The system supports:
+
+* Instrument specification entry
+* Environmental conditions
+* Applicable test selection
+* Observation entry
+* Metrological calculations
+* Compliance evaluation
+* Evidence upload
+* Reviewer observations
+* PDF/DOCX generation
+* Report finalization
+
+---
+
+# 🔐 Evidence & Cryptographic Integrity
+
+Metri-Report includes an evidence workflow designed around cryptographic integrity.
+
+### Evidence lifecycle
+
+```mermaid
+flowchart LR
+
+    A["📷 Test Evidence"]
+
+    B["📁 Upload"]
+
+    C["🔐 SHA-256"]
+
+    D["🗄️ Evidence Vault"]
+
+    E["📜 Audit Event"]
+
+    F["🔒 Finalized Record"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
+Evidence can include:
+
+* Calibration certificates
+* Test photographs
+* Raw testing artifacts
+* Supporting documents
+* Other statutory evidence
+
+The generated cryptographic digest can be used to detect unexpected evidence modification.
+
+---
+
+# 👥 Role-Based Access Control
+
+Metri-Report uses role-based access control for different statutory responsibilities.
+
+| Role              | Primary Responsibility                                       |
+| ----------------- | ------------------------------------------------------------ |
+| **ADMIN**         | Administration, roles, configuration and finalization        |
+| **LAB_MANAGER**   | Instrument management, test assignment and workflow approval |
+| **TEST_ENGINEER** | Test execution, observations and evidence                    |
+| **REVIEWER**      | Calculation review and technical approval                    |
+| **VIEWER**        | Read-only access to repository and audit information         |
+
+---
+
+# 📄 Automated Report Generation
+
+Metri-Report provides automated generation of:
+
+### PDF
+
+* Structured statutory test report
+* Metrological tables
+* Compliance results
+* Testing information
+* Evidence references
+* Disclaimers
+
+### DOCX
+
+* Editable evaluation package
+* Structured laboratory record
+* Test information
+* Calculation results
+* Review information
+
+The report engine is based on:
+
+* **ReportLab**
+* **python-docx**
+
+---
+
+# 📜 Audit Trail
+
+The Audit Trail provides chronological visibility into system activity.
+
+Captured information can include:
+
+* Event type
+* Timestamp
+* User
+* Action
+* Test/report context
+* Event payload
+* Related system state
+
+This supports traceability across the evaluation lifecycle.
+
+---
+
+# 🗂️ Project Structure
+
+```text
+MetriReport/
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── calculations/
+│   │   ├── compliance/
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── reports/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   └── tests/
+│   │
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── index.html
+│   ├── evaluation-workspace/
+│   ├── instrument-registry/
+│   ├── report-archive/
+│   ├── evidence-&-vault/
+│   ├── user-privileges-&-rbac/
+│   ├── audit-trail-log/
+│   ├── OIML-Rule-Engine/
+│   ├── server.js
+│   ├── subpage-shell.css
+│   ├── fonts/
+│   └── assets/
+│
+├── docs/
+│
+└── README.md
+```
+
+---
+
+# 🧱 Technology Stack
+
+<div align="center">
+
+| Layer                 | Technology              |
+| --------------------- | ----------------------- |
+| **Frontend**          | HTML5, CSS3, JavaScript |
+| **3D / Graphics**     | Three.js, WebGL, GLTF   |
+| **Frontend Gateway**  | Node.js                 |
+| **Backend**           | FastAPI                 |
+| **Language**          | Python                  |
+| **Validation**        | Pydantic                |
+| **ORM**               | SQLAlchemy 2.0          |
+| **Database**          | SQLite / PostgreSQL     |
+| **Reports**           | ReportLab, python-docx  |
+| **Security**          | JWT, Password Hashing   |
+| **Integrity**         | SHA-256                 |
+| **Testing**           | Pytest                  |
+| **Deployment**        | Docker / Docker Compose |
+| **Prototype Hosting** | Vercel                  |
+
+</div>
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+* Python 3.9+
+* Node.js 18+
+* npm
+* Git
+* Docker *(optional)*
+
+---
+
+## Backend Setup
+
 ```bash
 cd backend
+
 python3 -m venv venv
+
 source venv/bin/activate
+
 pip install -r requirements.txt
+
 PYTHONPATH=. uvicorn app.main:app --reload --port 8000
 ```
-Backend API will be accessible at: `http://localhost:8000`  
-Interactive OpenAPI Documentation: `http://localhost:8000/docs`
 
-### Frontend Gateway Setup
-```bash
-cd frontend
-npm install
-node server.js
+Backend:
+
+```text
+http://localhost:8000
 ```
-Frontend Web Application will be accessible at: `http://localhost:3000`
+
+Swagger:
+
+```text
+http://localhost:8000/docs
+```
 
 ---
 
-## 7. Running Automated QA Test Suite
+## Frontend Setup
 
-To run all 32+ backend unit, boundary, calculation, compliance, security, and report generation tests:
+```bash
+cd frontend
+
+npm install
+
+node server.js
+```
+
+Frontend:
+
+```text
+http://localhost:3000
+```
+
+---
+
+# 🧪 Run Automated Tests
+
+Run the backend test suite:
 
 ```bash
 cd backend
+
 python3 -m pytest app/tests/ -v
 ```
 
+The test suite covers areas such as:
+
+* Calculation logic
+* Boundary conditions
+* Compliance
+* Security
+* Report generation
+* Integration behavior
+
 ---
 
-## 8. Docker Compose Deployment
+# 🐳 Docker Deployment
 
-To build and run the complete multi-container stack in Docker:
+Build and start the complete stack:
 
 ```bash
 docker compose up --build
 ```
-- Frontend UI: `http://localhost:3000`
-- Backend API: `http://localhost:8000`
-- Interactive OpenAPI Docs: `http://localhost:3000/docs` or `http://localhost:8000/docs`
+
+Services:
+
+| Service         | URL                          |
+| --------------- | ---------------------------- |
+| Frontend        | `http://localhost:3000`      |
+| Backend         | `http://localhost:8000`      |
+| Swagger         | `http://localhost:3000/docs` |
+| Backend Swagger | `http://localhost:8000/docs` |
 
 ---
 
-## 9. SIH 2026 3–5 Minute Demonstration Workflow
+# 🎬 SIH 2026 Demo Flow
 
-1. **Login Screen**: Click **"Lead Engineer"** (or login with `engineer@metrireport.local` / `engineer123`).
-2. **Dashboard**: View 8 KPI metrics, 3D Metrology Platform Scale Twin, and interactive Recharts.
-3. **Launch Test Workspace**: Click **"Launch Test Workspace"** on Dashboard.
-4. **Step 1 (Instrument)**: Choose the seeded `MW-3000 Electronic Platform Scale (Class III, Max=3000kg, e=1kg)`.
-5. **Step 2 (Conditions)**: Inspect ambient conditions ($22.5^\circ\text{C}$, $54\%$ RH, $230\text{V AC}$) and proceed.
-6. **Step 3 (Applicable Tests)**: View dynamic test selection (filtered by Class III & electronic specifications).
-7. **Step 4 (Observations)**: Click **"1-Click Load Verified Demo Observations"** to populate real changeover weights ($\Delta L$) and explore the interactive **3D 5-Point Eccentricity Map**.
-8. **Step 5 & 6 (Calculations & Compliance)**: Click **"Run Verified Calculations"** to trigger the Python Calculation Engine and view explainable compliance cards with exact OIML clauses and margins.
-9. **Step 7 (Evidence)**: Upload high-resolution photographs with automated cryptographic **SHA-256 integrity hashing**.
-10. **Step 8 (Review & Sign)**: Enter reviewer technical observations and click **"Generate Official PDF & DOCX"**.
-11. **Step 9 (Report Export)**: Click **"Download Official PDF Report"** to view the Government of India format with crest, metrology tables, and disclaimers.
-12. **Step 10 (Finalize)**: Click **"Finalize & Lock Report Immutability"** to permanently seal the report in the statutory repository.
+A concise demonstration can follow this sequence:
+
+### 01 · Login
+
+Use one of the available demo roles.
+
+### 02 · Dashboard
+
+Inspect platform metrics and navigation.
+
+### 03 · Instrument Registry
+
+Select or create a NAWI instrument.
+
+### 04 · Evaluation Workspace
+
+Launch a statutory evaluation.
+
+### 05 · Test Configuration
+
+Configure conditions and applicable tests.
+
+### 06 · Observations
+
+Enter or load test observations.
+
+### 07 · Calculations
+
+Run the OIML calculation engine.
+
+### 08 · Compliance
+
+Review permissible limits, calculated values and status.
+
+### 09 · Evidence
+
+Upload supporting evidence and generate SHA-256 hashes.
+
+### 10 · Review
+
+Reviewer verifies calculations and observations.
+
+### 11 · Report
+
+Generate the PDF/DOCX evaluation report.
+
+### 12 · Finalize
+
+Finalize and lock the statutory record.
 
 ---
 
-## 10. Recent Mobile S (320px) & Responsive UI/UX Enhancements
+# 🧭 End-to-End Intelligence Flow
 
-A comprehensive responsive overhaul has been implemented for ultra-compact mobile viewports (e.g., **Mobile S - 320px screen width**) across all subpages and the main landing page:
+```mermaid
+flowchart TD
 
-1. **Compact Mobile Navbar & Branding**:
-   - **Enlarged Scale Logo Icon**: Scaled to `23px × 23px` for crisp legibility on small screens.
-   - **Ultra-Bold "Metri-Report" Typography**: Styled with `font-weight: 900` at `14.5px` with tight kerning (`-0.015em`) for strong brand recognition.
-   - **Enlarged User Profile Avatar Icon**: Scaled to `32px × 32px` circle with glowing pink accent border (`#ff2d78`) and live online status indicator dot.
-   - **Balanced 50px Navbar Height**: Vertical alignment (`display: flex; align-items: center; justify-content: space-between`) prevents horizontal overflow and crowding on 320px screens.
+    A["⚖️ Instrument"]
 
-2. **Mobile Menu Drawer / Preview Box Redesign**:
-   - **Snug Content-Fit Box**: The glowing pink outline modal (`border: 1.5px solid rgba(255, 72, 139, 0.45)`) wraps strictly around the 7 navigation links and action buttons (`height: auto !important; max-height: calc(100dvh - 60px)`).
-   - **Clean Button Ending**: The modal container ends cleanly immediately after the **LOGOUT** button with a balanced 10px margin, eliminating unnecessary empty vertical gaps.
-   - **Direct Single-Tap Navigation**: Instant access to all statutory modules (*Instrument Registry, Evaluation Workspace, Report Archive, Evidence & Vault, User Privileges & RBAC, Audit Trail Log, OIML Rule Engine*), `BACK TO DASHBOARD`, and `LOGOUT`.
+    B["🧪 Statutory Test"]
 
-3. **Authentic Slate Theme for Metrology Publications Section**:
-   - Maintained the authentic light slate palette (`#f8fafc` background, `#ffffff` cards, `#e2e8f0` borders) on mobile viewports.
-   - Images and icons render with `100% opacity` and responsive vertical card stacking, preventing blank white areas or conflicting dark overlays.
+    C["📊 Observations"]
+
+    D["🧮 OIML Calculation"]
+
+    E["📋 Compliance"]
+
+    F["🔐 Evidence"]
+
+    G["👥 Review"]
+
+    H["📄 PDF / DOCX"]
+
+    I["🔒 Finalized Record"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+```
 
 ---
 
-## 11. Legal Metrology Disclaimer
-> **IMPORTANT NOTICE:** METRIREPORT is a prototype system developed for SIH 2026. It generates compliance evaluation test reports strictly based on configured OIML R-76 requirements and does not falsely claim statutory Legal Metrology Model Approval certification under Section 22 of the Legal Metrology Act, 2009 without gazette notification.
+# 📱 Responsive UI / UX
+
+Metri-Report includes responsive interface work for compact mobile viewports.
+
+### Mobile-focused improvements
+
+* Compact navigation
+* Responsive module layouts
+* Touch-friendly controls
+* Responsive evaluation forms
+* Mobile-friendly evidence upload
+* Horizontal scrolling for large statutory tables
+* Adaptive spacing and typography
+* Compact dashboard components
+
+The frontend architecture is designed to preserve usability across desktop and mobile layouts.
+
+---
+
+# 🔒 Security & Integrity
+
+Metri-Report incorporates several security-oriented mechanisms:
+
+* 🔑 JWT authentication
+* 👥 Role-Based Access Control
+* 🔐 Password hashing
+* 🌐 CORS controls
+* 🧾 Audit logging
+* 🔒 SHA-256 evidence hashing
+* 🗄️ Controlled report storage
+* 🔒 Finalized report immutability workflow
+* 🧩 Environment-based configuration
+
+> Never commit production credentials, secrets, private keys or sensitive deployment configuration to the repository.
+
+---
+
+# 🧠 Design Philosophy
+
+<div align="center">
+
+### **Measure → Validate → Explain → Report**
+
+<br>
+
+<table>
+<tr>
+
+<td align="center" width="25%">
+
+### ⚖️
+
+<b>MEASURE</b>
+
+<br>
+
+<sub>
+Capture statutory<br>
+test observations
+</sub>
+
+</td>
+
+<td align="center" width="25%">
+
+### 🧮
+
+<b>VALIDATE</b>
+
+<br>
+
+<sub>
+Apply OIML rules<br>
+and calculations
+</sub>
+
+</td>
+
+<td align="center" width="25%">
+
+### 🔍
+
+<b>EXPLAIN</b>
+
+<br>
+
+<sub>
+Expose values,<br>
+limits and references
+</sub>
+
+</td>
+
+<td align="center" width="25%">
+
+### 📄
+
+<b>REPORT</b>
+
+<br>
+
+<sub>
+Generate structured<br>
+statutory documents
+</sub>
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<img
+src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=2&section=header"
+width="55%"
+/>
+
+</div>
+
+---
+
+# 🗺️ Roadmap
+
+```text
+Metri-Report
+│
+├── ⚖️ Metrology
+│   ├── Expanded statutory rule coverage
+│   ├── Additional test workflows
+│   └── Extended instrument support
+│
+├── 🧮 Calculation Engine
+│   ├── More verification scenarios
+│   ├── Extended boundary testing
+│   └── Additional mathematical validation
+│
+├── 📄 Reporting
+│   ├── More statutory report templates
+│   ├── Enhanced report versioning
+│   └── Digital verification workflows
+│
+├── 🔐 Integrity
+│   ├── Stronger evidence lifecycle
+│   ├── Advanced audit controls
+│   └── Extended verification mechanisms
+│
+└── ☁️ Deployment
+    ├── Production database support
+    ├── Scalable storage
+    └── Cloud deployment
+```
+
+---
+
+# ⚠️ Legal Metrology Disclaimer
+
+> **IMPORTANT NOTICE:** Metri-Report is a prototype system developed for SIH 2026. It is intended to demonstrate digital automation of NAWI testing and report-generation workflows based on configured OIML R-76 requirements.
+>
+> The prototype does **not** by itself constitute statutory Legal Metrology Model Approval, certification or gazette notification under applicable Indian law.
+>
+> Actual statutory decisions, approvals and certifications remain subject to the competent authority, applicable legislation, notified rules, standards and authorized metrological procedures.
+
+---
+
+# 👨‍💻 Project
+
+<div align="center">
+
+### 𓍝 **Metri-Report**
+
+<br>
+
+<strong>OIML R-76 · Legal Metrology · Statutory Testing · Digital Reporting</strong>
+
+<br><br>
+
+<a href="https://metri-report.vercel.app/">
+<img
+src="https://img.shields.io/badge/🚀_LIVE_PROTOTYPE-E11D48?style=for-the-badge&logo=vercel&logoColor=white"
+alt="Live Prototype"
+/>
+</a>
+
+ 
+
+<a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing">
+<img
+src="https://img.shields.io/badge/📑_PRESENTATION-4285F4?style=for-the-badge&logo=googledrive&logoColor=white"
+alt="Presentation"
+/>
+</a>
+
+ 
+
+<a href="https://youtu.be/aikTO0FT_2c?si=wGvtQ1_y6iuLtcUi">
+<img
+src="https://img.shields.io/badge/▶_VIDEO-FF0000?style=for-the-badge&logo=youtube&logoColor=white"
+alt="Video"
+/>
+</a>
+
+<br><br>
+
+<sub>
+Built for statutory testing automation, traceability and digital legal metrology workflows.
+</sub>
+
+<br><br>
+
+<img
+src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=E11D48&center=true&vCenter=true&width=750&lines=Measure+with+structure;Validate+with+rules;Explain+with+traceability;Report+with+confidence"
+alt="Metri-Report closing animation"
+/>
+
+<br><br>
+
+⭐ <strong>If you find Metri-Report useful, consider starring the repository.</strong>
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>
+
+**𓍝 Metri-Report**
+
+<br>
+
+**Smart OIML R-76 Statutory Testing & Legal Metrology Automation Platform**
+
+</sub>
+
+</div>
