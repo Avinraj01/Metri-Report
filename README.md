@@ -57,14 +57,11 @@
 
 > **Measure • Validate • Verify • Report**
 
-<br>
 
 <img
   src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=3&section=header"
   width="72%"
 />
-
-<br><br>
 
 <sub>
 <strong>SIH 2026 Prototype</strong> · Legal Metrology · Non-Automatic Weighing Instruments · OIML R-76
