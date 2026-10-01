@@ -140,7 +140,39 @@ width="900"
 
 </a>
 
-<br><br>
+### 📖 Navigate Presentation
+
+<table align="center" width="900">
+<tr>
+
+<td align="left" width="50%">
+
+<a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing#page=1">
+
+<img
+src="https://img.shields.io/badge/◀_PREVIOUS_PAGE-111827?style=for-the-badge&logoColor=white"
+alt="Previous Page"
+/>
+
+</a>
+
+</td>
+
+<td align="right" width="50%">
+
+<a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing#page=2">
+
+<img
+src="https://img.shields.io/badge/NEXT_PAGE_▶-E11D48?style=for-the-badge&logoColor=white"
+alt="Next Page"
+/>
+
+</a>
+
+</td>
+
+</tr>
+</table>
 
 <a href="https://drive.google.com/file/d/1nsga1QCVMlIudqo0IhGJenXJBFIyrymS/view?usp=sharing">
 
@@ -151,16 +183,14 @@ alt="Open Full Presentation"
 
 </a>
 
-<br><br>
-
 <sub>
-Click the presentation preview or the button above to open the complete project presentation.
+Use <strong>Previous</strong> and <strong>Next</strong> to navigate the presentation,
+or open the complete PPT directly in Google Drive.
 </sub>
 
 </div>
 
 ---
-
 # 🌐 Live Prototype
 
 <div align="center">
@@ -179,8 +209,6 @@ width="900"
 
 </a>
 
-<br><br>
-
 <a href="https://metri-report.vercel.app/">
 
 <img
@@ -189,8 +217,6 @@ alt="Open Metri-Report"
 />
 
 </a>
-
-<br><br>
 
 <sub>
 Click the preview or button above to open the live Metri-Report prototype.
@@ -225,7 +251,6 @@ width="420"
 
 </a>
 
-<br><br>
 
 <a href="https://youtu.be/aikTO0FT_2c?si=wGvtQ1_y6iuLtcUi">
 
@@ -236,7 +261,6 @@ alt="Watch Short Explanation"
 
 </a>
 
-<br>
 
 <sub>Quick overview of the problem, solution and platform.</sub>
 
@@ -256,7 +280,6 @@ width="420"
 
 </a>
 
-<br><br>
 
 <a href="https://youtu.be/I3D6fohmWKI?si=4KK4XNhP0dYcliJN">
 
@@ -267,7 +290,6 @@ alt="Watch Prototype Demo"
 
 </a>
 
-<br>
 
 <sub>Walkthrough of the working Metri-Report prototype.</sub>
 
